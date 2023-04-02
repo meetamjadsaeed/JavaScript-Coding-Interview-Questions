@@ -285,7 +285,7 @@ console.log(output(param));
 ```
 
 ### Q19: Write a function that returns the sum of all odd numbers in an array
-
+```javascript
 const output = (input) => {
     let sum = 0;
 
@@ -300,10 +300,10 @@ const output = (input) => {
 
 const param = [3,3,2,2];
 console.log(output(param));
-
+```
 
 ### Q20: Write a function that sorts an array of numbers in ascending order
-
+```javascript
 const output = (input) => {
 
     return input.sort((a,b) => {return a-b});
@@ -311,11 +311,11 @@ const output = (input) => {
 
 const param = [3,3,2,2];
 console.log(output(param));
-
+```
 
 
 ### Q21: Write a function that sorts an array of numbers in descending order
-
+```javascript
 const output = (input) => {
 
     return input.sort((a,b) => {return b-a});
@@ -323,10 +323,10 @@ const output = (input) => {
 
 const param = [3,3,2,2];
 console.log(output(param));
-
+```
 
 ### Q22: Write a function that returns the length of the longest word in a sentence
-
+```javascript
 const output = (input) => {
 
     let toArray = input.split(" ");
@@ -346,11 +346,11 @@ const output = (input) => {
 
 const param = "length of the longest word in a sentence sentencesentence";
 console.log(output(param));
-
+```
 
 
 ### Q23: Write a function that finds the first non-repeating character in a given string
-
+```javascript
 const output = (input) => {
     let toArray = input.split("");
     let nonRepeating = [];
@@ -368,10 +368,10 @@ const output = (input) => {
 
 const param = "lenegtahtl";
 console.log(output(param));
-
+```
 
 ### Q24: Write a function that checks if two strings are anagrams
-
+```javascript
 const output = (input, input2) => {
     let count = 0;
 
@@ -391,11 +391,11 @@ const param = "listen";
 const param2 = "silent";
 
 console.log(output(param, param2));
-
+```
 
 
 ### Q25: Write a function that removes duplicates from an array of numbers
-
+```javascript
 const output = (input) => {
 
     return [...new Set(input)];
@@ -404,10 +404,10 @@ const output = (input) => {
 const param = [1,1,2];
 
 console.log(output(param));
-
+```
 
 ### Q26: Write a function that removes duplicates from an array of numbers
-
+```javascript
 const output = (input) => {
 
     let uniq = [];
@@ -424,11 +424,11 @@ const output = (input) => {
 const param = [1,1,2,2,5,32,5,7,6,3,1,7,5,3,5,8,90,8,5,3,2,2];
 
 console.log(output(param));
-
+```
 
 
 ### Q27: Write a function that finds the missing number in an array of numbers
-
+```javascript
 const output = (input) => {
     let missingNumbers = [];
     let range = Math.max(...input);
@@ -444,12 +444,12 @@ const output = (input) => {
 
   const param = [4, 1, 4, 10];
   console.log(output(param)); // should output [2, 3, 5, 6, 7, 8, 9]
-
+```
 
 
 
 ### Q28: Write a function that returns the reverse of a given string
-
+```javascript
 const output = (input) => {
     let reverseString = [];
 
@@ -463,11 +463,11 @@ const output = (input) => {
 
   const param = "amjad";
   console.log(output(param)); 
-
+```
 
 
 ### Q29: Write a function that converts a number to its binary representation
-
+```javascript
 const output = (input) => {
 
     return (input >>> 0).toString(2);;
@@ -475,11 +475,11 @@ const output = (input) => {
 
   const param = -1;
   console.log(output(param)); 
-
+```
 
 
 ### Q30: Write a function that checks if a given string is a valid phone number
-
+```javascript
 const output = (input) => {
 let pattern =  /^((\+)33|0)[1-9](\d{2}){4}$/;
 let result = input.match(pattern);
@@ -489,10 +489,10 @@ let result = input.match(pattern);
 const param = "+33777777777";
 
 console.log(output(param));
-
+```
 
 ### Q31: Write a function that checks if a given string is a valid phone number
-
+```javascript
 const output = (input) => {
     var visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
     var mastercardRegEx = /^(?:5[1-5][0-9]{14})$/;
@@ -506,10 +506,10 @@ const output = (input) => {
 const param = "4111 1111 1111 1111";
 
 console.log(output(param));
-
+```
 
 ### Q32: Write a function that checks if a given string is a valid phone number
-
+```javascript
 const output = (input) => {
     var visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
     var mastercardRegEx = /^(?:5[1-5][0-9]{14})$/;
@@ -523,13 +523,10 @@ const output = (input) => {
 const param = "4111 1111 1111 1111";
 
 console.log(output(param));
-
-
-
-
+```
 
 ### Q33: Write a function that returns the sum of all numbers in a given string
-
+```javascript
 const output = (input) => {
 let toArray = input.split("");
 let filterNumber = toArray.filter((char)=>{return !isNaN(char)});
@@ -546,10 +543,10 @@ for (let index = 0; index < filterNumber.length; index++) {
 const param = "asa2sa2askdhaks1JSH1AKS1JK";
 
 console.log(output(param));
-
+```
 
 ### Q34: Write a function that returns the number of words in a given sentence
-
+```javascript
 const output = (input) => {
 
     return input.split(" ").length;
@@ -558,10 +555,10 @@ const output = (input) => {
 const param = "amjad saeed saeed saeed saeed saeed saeed saeed saeed saeed saeed saeed";
 
 console.log(output(param));
-
+```
 
 ### Q35: Write a function that returns the number of lines in a given string
-
+```javascript
 const output = (input) => {
 
     return input.split(/\n/).length;
@@ -570,10 +567,10 @@ const output = (input) => {
 const param = "amjad saeed saeed";
 
 console.log(output(param));
-
+```
 
 ### Q36: Write a function that checks if a given string contains only digits
-
+```javascript
 const output = (input) => {
 let toArray = input.split("");
 let filterNumber = toArray.filter((char)=>{return isNaN(char)});
@@ -584,10 +581,10 @@ let filterNumber = toArray.filter((char)=>{return isNaN(char)});
 const param = "1212";
 
 console.log(output(param));
-
+```
 
 ### Q37: Write a function that checks if a given string contains only letters
-
+```javascript
 const output = (input) => {
 let toArray = input.split("");
 let filterNumber = toArray.filter((char)=>{return !isNaN(char)});
@@ -598,10 +595,10 @@ let filterNumber = toArray.filter((char)=>{return !isNaN(char)});
 const param = "asasasa1";
 
 console.log(output(param));
-
+```
 
 ### Q38: Write a function that returns the result of number with power
-
+```javascript
 const output = (input, input2) => {
     let result = 1;
     while (input2 > 0) {
@@ -615,10 +612,10 @@ const output = (input, input2) => {
   const param2 = 3;
 
   console.log(output(param, param2)); // should output 4
-
+```
 
 ### Q39: checks if a given number is a perfect square
-
+```javascript
 const output = (input) => {
     // Find the square root of the number
     const sqrt = Math.sqrt(input);
@@ -630,10 +627,10 @@ const output = (input) => {
 const param = 49;
 
 console.log(output(param)); // should output 4
-
+```
 
 ### Q40: Write a function that returns the largest palindrome in a given string
-
+```javascript
 const output = (str) => {
     let largestPalindrome = '';
 
@@ -660,9 +657,10 @@ function isPalindrome(str) {
 const param = "abcdeedcba";
 
 console.log(output(param)); // should output 'abcdeedcba'
-
+```
 
 ### Q41: Write a function that returns the number of occurrences of a given character in a string
+```javascript
 function countOccurrences(str, char) {
     let count = 0;
 
@@ -680,9 +678,10 @@ function countOccurrences(str, char) {
   // Example usage
   console.log(countOccurrences('hello', 'l')); // should output 2
   console.log(countOccurrences('mississippi', 's')); // should output 4
-
+```
 
 ### Q42: Write a function that checks if a given string is a valid date
+```javascript
 function isValidDate(dateString) {
     // Try to parse the string as a date
     const date = new Date(dateString);
@@ -698,9 +697,10 @@ function isValidDate(dateString) {
   // Example usage
   console.log(isValidDate('2022-03-17')); // should output true
   console.log(isValidDate('2022-02-30')); // should output false
-
+```
 
 ### Q43: Write a function that checks if a given string is a valid time
+```javascript
 function isValidTime(timeString) {
     // Split the time string into hours, minutes, and seconds
     const timeParts = timeString.split(':');
@@ -728,10 +728,10 @@ function isValidTime(timeString) {
   // Example usage
   console.log(isValidTime('12:34:56')); // should output true
   console.log(isValidTime('24:00:00')); // should output false
-
+```
 
 ### Q44: Write a function that checks if a given string is a valid time  
-
+```javascript
 const output = (input) => {
     return input.toString(16)
 };
@@ -739,9 +739,10 @@ const output = (input) => {
 const param = 49;
 
 console.log(output(param)); // should output 4
+```
 
-
-### Q45: Write a function that returns the largest number that can be formed from an array of integers  
+### Q45: Write a function that returns the largest number that can be formed from an array of integers 
+```javascript 
 function largestNumberFromArray(nums) {
     // Convert all numbers to strings
     const stringNums = nums.map(num => num.toString());
@@ -762,9 +763,10 @@ function largestNumberFromArray(nums) {
   // Example usage
   console.log(largestNumberFromArray([10, 2])); // should output 210
   console.log(largestNumberFromArray([3, 30, 34, 5, 9])); // should output 9534330
-
+```
 
 ### Q45: Write a function that returns the smallest number that can be formed from an array of integers
+```javascript
 function smallestNumberFromArray(nums) {
     // Convert all numbers to strings
     const stringNums = nums.map(num => num.toString());
@@ -785,9 +787,10 @@ function smallestNumberFromArray(nums) {
   // Example usage
   console.log(smallestNumberFromArray([10, 2])); // should output 210
   console.log(smallestNumberFromArray([3, 30, 34, 5, 9])); // should output 303459
-
+```
 
 ### Q46: Write a function that checks if a given number is a power of two
+```javascript
 const output = (input) => {
     const sqrt = Math.sqrt(input);
 
@@ -797,9 +800,10 @@ const output = (input) => {
 const param = 5;
 
 console.log(output(param)); // should output 4
-
+```
 
 ### Q47: Write a function that checks if a given number is a power of three
+```
 const output = (input, input2) => {
     let result = 1;
     let base = 2;
@@ -814,9 +818,10 @@ const output = (input, input2) => {
   const param2 = 3;
 
   console.log(output(param, param2));
-
+```
 
 ### Q48: Write a function that returns the sum of all multiples of 3 and 5 below a given number
+```javascript
 const output = (input) => {
     let result = 0;
     for (let index = 0; index < input.length; index++) {
@@ -831,9 +836,10 @@ const output = (input) => {
 
 const param = [3, 5, 6, 9, 10, 12, 15, 18, 20];
 console.log(output(param));
-
+```
 
 ### Q49: Write a function that returns the largest sum of a contiguous subarray in an array of integers
+```javascript
 const output = (input) => {
     let currentSum = input[0]; // set currentSum to the first element
     let result = input[0]; // set result to the first element
@@ -848,9 +854,10 @@ const output = (input) => {
 
 const param = [-2, -3, 4, -1, -2, 1, 5, -3];
 console.log(output(param)); 
-
+```
 
 ### Q50: Write a function that returns the largest sum of a contiguous subarray in an array of integers
+```javascript
 const output = (input) => {
     let currentSum = input[0]; // set currentSum to the first element
     let result = input[0]; // set result to the first element
@@ -865,3 +872,4 @@ const output = (input) => {
 
 const param = [-2, -3, 4, -1, -2, 1, 5, -3];
 console.log(output(param));
+```
