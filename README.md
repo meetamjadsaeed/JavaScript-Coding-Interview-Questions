@@ -945,3 +945,45 @@ function isPerfectNumber(num) {
   return sum === num;
 }
 ```
+
+### Q52: Write a function that returns the length of the shortest path in a matrix from the top-left corner to the bottom-right corner, moving only down or right
+
+```javascript
+// Define function to find shortest path length
+function shortestPath(matrix) {
+  // Get number of rows and columns in matrix
+  const numRows = matrix.length;
+  const numCols = matrix[0].length;
+
+  // Create a 2D array to store the minimum path lengths
+  const minPathLengths = new Array(numRows)
+    .fill()
+    .map(() => new Array(numCols).fill(0));
+
+  // Initialize the first element to the matrix value at (0,0)
+  minPathLengths[0][0] = matrix[0][0];
+
+  // Fill in the first row of minPathLengths
+  for (let col = 1; col < numCols; col++) {
+    minPathLengths[0][col] = minPathLengths[0][col - 1] + matrix[0][col];
+  }
+
+  // Fill in the first column of minPathLengths
+  for (let row = 1; row < numRows; row++) {
+    minPathLengths[row][0] = minPathLengths[row - 1][0] + matrix[row][0];
+  }
+
+  // Fill in the rest of minPathLengths using dynamic programming
+  for (let row = 1; row < numRows; row++) {
+    for (let col = 1; col < numCols; col++) {
+      // Compute the minimum path length to (row, col)
+      const fromTop = minPathLengths[row - 1][col] + matrix[row][col];
+      const fromLeft = minPathLengths[row][col - 1] + matrix[row][col];
+      minPathLengths[row][col] = Math.min(fromTop, fromLeft);
+    }
+  }
+
+  // Return the shortest path length to the bottom-right corner
+  return minPathLengths[numRows - 1][numCols - 1];
+}
+```
