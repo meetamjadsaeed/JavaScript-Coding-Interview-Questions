@@ -987,3 +987,58 @@ function shortestPath(matrix) {
   return minPathLengths[numRows - 1][numCols - 1];
 }
 ```
+
+### Q52: Write a function that returns the number of islands in a matrix, where an island is a group of connected 1's surrounded by 0's
+
+```javascript
+/**
+ * Counts the number of islands in a matrix, where an island is a group of
+ * connected 1's surrounded by 0's.
+ *
+ * @param {number[][]} matrix - A 2D array of 0's and 1's representing the matrix
+ * @returns {number} - The number of islands in the matrix
+ */
+function countIslands(matrix) {
+  // Initialize a count for the number of islands
+  let count = 0;
+
+  // Define a recursive function to traverse the matrix
+  function traverse(row, col) {
+    // If the current cell is not a 1, return
+    if (matrix[row][col] !== 1) {
+      return;
+    }
+
+    // Mark the current cell as visited by changing it to a 2
+    matrix[row][col] = 2;
+
+    // Recursively traverse all neighboring cells
+    if (row > 0) {
+      traverse(row - 1, col);
+    }
+    if (col > 0) {
+      traverse(row, col - 1);
+    }
+    if (row < matrix.length - 1) {
+      traverse(row + 1, col);
+    }
+    if (col < matrix[0].length - 1) {
+      traverse(row, col + 1);
+    }
+  }
+
+  // Loop through each cell in the matrix
+  for (let row = 0; row < matrix.length; row++) {
+    for (let col = 0; col < matrix[0].length; col++) {
+      // If the current cell is a 1, increment the count and traverse the island
+      if (matrix[row][col] === 1) {
+        count++;
+        traverse(row, col);
+      }
+    }
+  }
+
+  // Return the number of islands
+  return count;
+}
+```
