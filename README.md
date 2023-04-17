@@ -988,7 +988,7 @@ function shortestPath(matrix) {
 }
 ```
 
-### Q52: Write a function that returns the number of islands in a matrix, where an island is a group of connected 1's surrounded by 0's
+### Q53: Write a function that returns the number of islands in a matrix, where an island is a group of connected 1's surrounded by 0's
 
 ```javascript
 /**
@@ -1040,5 +1040,33 @@ function countIslands(matrix) {
 
   // Return the number of islands
   return count;
+}
+```
+
+### Q54: Write a function that returns the number of pairs of integers in an array whose sum is equal to a given number
+
+```javascript
+function countPairs(arr, sum) {
+  let count = 0; // initialize count variable to 0
+  let hashTable = {}; // create empty object to act as hash table
+
+  for (let i = 0; i < arr.length; i++) {
+    // loop through array
+    let complement = sum - arr[i]; // calculate the complement for each element
+
+    if (hashTable[complement]) {
+      // if complement is already in hash table
+      count += hashTable[complement]; // increment count by the number of times complement appears in array
+    }
+
+    if (!hashTable[arr[i]]) {
+      // if element not in hash table yet
+      hashTable[arr[i]] = 0; // add element to hash table with value of 0
+    }
+
+    hashTable[arr[i]]++; // increment count for current element in hash table
+  }
+
+  return count; // return final count
 }
 ```
