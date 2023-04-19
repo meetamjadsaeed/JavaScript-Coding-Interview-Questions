@@ -1070,3 +1070,28 @@ function countPairs(arr, sum) {
   return count; // return final count
 }
 ```
+
+### Q55: Write a function that checks if a given string is a valid palindrome ignoring cases
+
+```javascript
+/**
+ * Checks if a given string is a valid palindrome ignoring cases
+ * @param {string} str - The string to check
+ * @returns {boolean} - True if str is a palindrome, false otherwise
+ */
+function isPalindrome(str) {
+  // Convert the string to lowercase and remove non-alphanumeric characters
+  const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  // Loop through the characters in the string
+  for (let i = 0; i < cleanStr.length / 2; i++) {
+    // If the characters on either side of the string don't match, return false
+    if (cleanStr[i] !== cleanStr[cleanStr.length - 1 - i]) {
+      return false;
+    }
+  }
+
+  // If we got through the whole loop without returning false, the string is a palindrome
+  return true;
+}
+```
