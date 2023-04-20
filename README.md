@@ -1095,3 +1095,46 @@ function isPalindrome(str) {
   return true;
 }
 ```
+
+### Q56: Write a function that returns the longest increasing subsequence in an array of integers
+
+```javascript
+function longestIncreasingSubsequence(arr) {
+  // Initialize an array of length arr.length, where each element is initially 1
+  const lisLengths = new Array(arr.length).fill(1);
+
+  // Loop through each element in the array
+  for (let i = 1; i < arr.length; i++) {
+    // Loop through all the previous elements
+    for (let j = 0; j < i; j++) {
+      // If the current element is greater than the previous element
+      if (arr[i] > arr[j]) {
+        // Update the length of the longest increasing subsequence ending at the current element
+        lisLengths[i] = Math.max(lisLengths[i], lisLengths[j] + 1);
+      }
+    }
+  }
+
+  // Find the maximum length in the lisLengths array
+  let maxLength = 0;
+  for (let i = 0; i < lisLengths.length; i++) {
+    maxLength = Math.max(maxLength, lisLengths[i]);
+  }
+
+  // Initialize an empty array to store the longest increasing subsequence
+  const lis = [];
+
+  // Loop through each element in the array, starting from the end
+  for (let i = arr.length - 1; i >= 0; i--) {
+    // If the current element is part of the longest increasing subsequence
+    if (lisLengths[i] === maxLength) {
+      // Add it to the lis array and decrement the maxLength
+      lis.unshift(arr[i]);
+      maxLength--;
+    }
+  }
+
+  // Return the longest increasing subsequence
+  return lis;
+}
+```
