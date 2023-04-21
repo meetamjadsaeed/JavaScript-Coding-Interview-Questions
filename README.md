@@ -1138,3 +1138,40 @@ function longestIncreasingSubsequence(arr) {
   return lis;
 }
 ```
+
+### Q57: Write a function that returns the length of the longest palindromic subsequence in a string
+
+```javascript
+/**
+ * Returns the length of the longest palindromic subsequence in a string.
+ * @param {string} str - The input string.
+ * @returns {number} The length of the longest palindromic subsequence in the input string.
+ */
+function longestPalindromicSubsequence(str) {
+  const n = str.length;
+  const dp = Array(n)
+    .fill()
+    .map(() => Array(n).fill(0)); // initialize a 2D array of size n x n
+
+  // initialize the diagonal elements with 1
+  for (let i = 0; i < n; i++) {
+    dp[i][i] = 1;
+  }
+
+  // fill the remaining upper half of the dp table
+  for (let cl = 2; cl <= n; cl++) {
+    for (let i = 0; i < n - cl + 1; i++) {
+      const j = i + cl - 1;
+      if (str[i] == str[j] && cl == 2) {
+        dp[i][j] = 2;
+      } else if (str[i] == str[j]) {
+        dp[i][j] = dp[i + 1][j - 1] + 2;
+      } else {
+        dp[i][j] = Math.max(dp[i][j - 1], dp[i + 1][j]);
+      }
+    }
+  }
+
+  return dp[0][n - 1]; // the length of the longest palindromic subsequence is stored in the top-right corner of the dp table
+}
+```
