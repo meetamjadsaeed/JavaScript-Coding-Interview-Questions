@@ -2,7 +2,7 @@
 
 ## Description
 
-This is my awesome project.
+JavaScript Coding Interview Questions for small-medium companies.
 
 ## Usage
 
