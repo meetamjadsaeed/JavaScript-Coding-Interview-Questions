@@ -1175,3 +1175,58 @@ function longestPalindromicSubsequence(str) {
   return dp[0][n - 1]; // the length of the longest palindromic subsequence is stored in the top-right corner of the dp table
 }
 ```
+
+### Q58: Write a function that returns the minimum number of steps required to transform one string to another, where a step is defined as either adding, deleting or changing a character in the first string
+
+```javascript
+/**
+ * Calculates the minimum number of steps required to transform one string to another.
+ * A step is defined as either adding, deleting or changing a character in the first string.
+ *
+ * @param {string} str1 - The first string.
+ * @param {string} str2 - The second string.
+ * @returns {number} - The minimum number of steps required to transform str1 to str2.
+ */
+function minStepsToTransform(str1, str2) {
+  const m = str1.length;
+  const n = str2.length;
+
+  // Create a 2D array to store the minimum number of steps required to transform the first i characters of str1 to the first j characters of str2.
+  const dp = Array(m + 1)
+    .fill(null)
+    .map(() => Array(n + 1).fill(0));
+
+  // Initialize the first row and column of the dp array.
+  for (let i = 0; i <= m; i++) {
+    dp[i][0] = i;
+  }
+  for (let j = 0; j <= n; j++) {
+    dp[0][j] = j;
+  }
+
+  // Fill in the rest of the dp array.
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (str1[i - 1] === str2[j - 1]) {
+        // If the i-th character of str1 is the same as the j-th character of str2, we don't need to do anything.
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        // Otherwise, we need to find the minimum of three operations:
+        // 1. Replace the i-th character of str1 with the j-th character of str2.
+        // 2. Delete the i-th character of str1.
+        // 3. Insert the j-th character of str2 into str1.
+        dp[i][j] =
+          1 +
+          Math.min(
+            dp[i - 1][j - 1], // Replace operation.
+            dp[i - 1][j], // Delete operation.
+            dp[i][j - 1] // Insert operation.
+          );
+      }
+    }
+  }
+
+  // The final answer is the value at the bottom-right corner of the dp array.
+  return dp[m][n];
+}
+```
