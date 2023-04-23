@@ -1230,3 +1230,18 @@ function minStepsToTransform(str1, str2) {
   return dp[m][n];
 }
 ```
+
+### Q59: Write a function that returns the minimum number of steps required to transform one string to another, where a step is defined as either adding, deleting or changing a character in the first string
+
+```javascript
+function isHarshadNumber(num) {
+  // Convert the number to a string and split it into an array of digits
+  const digits = num.toString().split("");
+
+  // Calculate the sum of the digits
+  const sum = digits.reduce((acc, digit) => acc + parseInt(digit), 0);
+
+  // Check if the number is divisible by the sum of its digits
+  return num % sum === 0;
+}
+```
