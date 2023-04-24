@@ -1231,7 +1231,7 @@ function minStepsToTransform(str1, str2) {
 }
 ```
 
-### Q59: Write a function that returns the minimum number of steps required to transform one string to another, where a step is defined as either adding, deleting or changing a character in the first string
+### Q59: Write a function that checks if a given number is a Harshad number
 
 ```javascript
 function isHarshadNumber(num) {
@@ -1243,5 +1243,35 @@ function isHarshadNumber(num) {
 
   // Check if the number is divisible by the sum of its digits
   return num % sum === 0;
+}
+```
+
+### Write a function that returns the number of ways to climb a staircase of n steps, where a person can climb either 1, 2 or 3 steps at a time
+
+```javascript
+// This function calculates the number of ways to climb a staircase of n steps,
+// where a person can climb either 1, 2 or 3 steps at a time.
+function countWaysToClimbStairs(n) {
+  // Create an array to store the number of ways to climb the first few steps.
+  const waysToClimb = [1, 1, 2];
+
+  // If n is less than or equal to 2, return the corresponding number of ways to climb.
+  if (n <= 2) {
+    return waysToClimb[n];
+  }
+
+  // Calculate the number of ways to climb each step up to n.
+  for (let i = 3; i <= n; i++) {
+    // The number of ways to climb the current step is the sum of the number of ways
+    // to climb the previous three steps.
+    const currentWaysToClimb =
+      waysToClimb[i - 1] + waysToClimb[i - 2] + waysToClimb[i - 3];
+
+    // Add the number of ways to climb the current step to the array.
+    waysToClimb.push(currentWaysToClimb);
+  }
+
+  // Return the number of ways to climb the last step.
+  return waysToClimb[n];
 }
 ```
