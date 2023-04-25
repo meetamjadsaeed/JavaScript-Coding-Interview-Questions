@@ -1246,7 +1246,7 @@ function isHarshadNumber(num) {
 }
 ```
 
-### Write a function that returns the number of ways to climb a staircase of n steps, where a person can climb either 1, 2 or 3 steps at a time
+### Q60: Write a function that returns the number of ways to climb a staircase of n steps, where a person can climb either 1, 2 or 3 steps at a time
 
 ```javascript
 // This function calculates the number of ways to climb a staircase of n steps,
@@ -1273,5 +1273,44 @@ function countWaysToClimbStairs(n) {
 
   // Return the number of ways to climb the last step.
   return waysToClimb[n];
+}
+```
+
+### Q61: Write a function that checks if a given string is a valid parentheses sequence
+
+```javascript
+function isValidParentheses(str) {
+  // Create a stack to store opening parentheses
+  const stack = [];
+
+  // Loop through each character in the string
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    // If the character is an opening parenthesis, push it onto the stack
+    if (char === "(" || char === "{" || char === "[") {
+      stack.push(char);
+    } else {
+      // If the character is a closing parenthesis, pop the top element from the stack
+      const top = stack.pop();
+
+      // If the popped element doesn't match the corresponding opening parenthesis, return false
+      if (
+        (top === "(" && char !== ")") ||
+        (top === "{" && char !== "}") ||
+        (top === "[" && char !== "]")
+      ) {
+        return false;
+      }
+    }
+  }
+
+  // If the stack is not empty, return false
+  if (stack.length !== 0) {
+    return false;
+  }
+
+  // Otherwise, the parentheses sequence is valid
+  return true;
 }
 ```
