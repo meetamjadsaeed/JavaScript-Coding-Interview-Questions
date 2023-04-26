@@ -1314,3 +1314,22 @@ function isValidParentheses(str) {
   return true;
 }
 ```
+
+### Q62: Write a function that returns the number of ways to arrange n distinct objects in a circle
+
+```javascript
+// This function returns the number of ways to arrange n distinct objects in a circle
+function circlePermutations(n) {
+  // Calculate the factorial of n using a recursive function
+  function factorial(num) {
+    if (num === 0) {
+      return 1;
+    } else {
+      return num * factorial(num - 1);
+    }
+  }
+
+  // Calculate the number of circular permutations using the formula (n-1)!
+  return factorial(n - 1);
+}
+```
