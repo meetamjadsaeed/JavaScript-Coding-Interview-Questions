@@ -1333,3 +1333,27 @@ function circlePermutations(n) {
   return factorial(n - 1);
 }
 ```
+
+### Q63: Write a function that checks if a given number is a narcissistic number
+
+```javascript
+function isNarcissisticNumber(number) {
+  // convert number to string to get its length
+  const numberStr = number.toString();
+  const length = numberStr.length;
+
+  // initialize sum to 0
+  let sum = 0;
+
+  // loop through each digit in the number
+  for (let i = 0; i < length; i++) {
+    // get the i-th digit and convert it to a number
+    const digit = Number(numberStr[i]);
+    // add the i-th digit raised to the power of length to the sum
+    sum += Math.pow(digit, length);
+  }
+
+  // if the sum equals the original number, it's a narcissistic number
+  return sum === number;
+}
+```
