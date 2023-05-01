@@ -1357,3 +1357,39 @@ function isNarcissisticNumber(number) {
   return sum === number;
 }
 ```
+
+### Q64: Write a function that returns the length of the longest common subsequence in two given strings
+
+```javascript
+// This function takes two strings as input and returns the length of the longest common subsequence
+function longestCommonSubsequenceLength(str1, str2) {
+  // First, we create a two-dimensional array to store the lengths of the longest common subsequences
+  const lcs = Array(str1.length + 1)
+    .fill(null)
+    .map(() => Array(str2.length + 1).fill(null));
+
+  // Then, we loop through the characters of both strings and fill in the array
+  for (let i = 0; i <= str1.length; i++) {
+    for (let j = 0; j <= str2.length; j++) {
+      // If either string is empty, the length of the common subsequence is 0
+      if (i === 0 || j === 0) {
+        lcs[i][j] = 0;
+
+        // If the current characters match, we can extend the previous common subsequence
+      } else if (str1[i - 1] === str2[j - 1]) {
+        lcs[i][j] = lcs[i - 1][j - 1] + 1;
+
+        // Otherwise, we take the maximum of the two previous common subsequences
+      } else {
+        lcs[i][j] = Math.max(lcs[i - 1][j], lcs[i][j - 1]);
+      }
+    }
+  }
+
+  // The length of the longest common subsequence is stored in the bottom-right cell of the array
+  return lcs[str1.length][str2.length];
+}
+
+// Example usage:
+console.log(longestCommonSubsequenceLength("abcde", "ace")); // Output: 3
+```
