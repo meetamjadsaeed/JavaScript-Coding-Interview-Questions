@@ -1393,3 +1393,57 @@ function longestCommonSubsequenceLength(str1, str2) {
 // Example usage:
 console.log(longestCommonSubsequenceLength("abcde", "ace")); // Output: 3
 ```
+
+### Q65: Write a function that checks if a given number is a prime number using the Miller-Rabin primality test
+
+```javascript
+// This function takes a number as input and returns true if it is a prime number, false otherwise.
+function isPrime(n) {
+  // Check if n is less than 2 or if it is an even number greater than 2. In either case, it cannot be prime.
+  if (n < 2 || (n != 2 && n % 2 == 0)) {
+    return false;
+  }
+
+  // Determine the values of s and d for the Miller-Rabin test
+  let s = 0;
+  let d = n - 1;
+  while (d % 2 == 0) {
+    s++;
+    d /= 2;
+  }
+
+  // Run the Miller-Rabin test for k iterations
+  const k = 20; // The number of iterations to run
+  for (let i = 0; i < k; i++) {
+    // Choose a random witness
+    const a = Math.floor(Math.random() * (n - 3) + 2);
+
+    // Compute a^d mod n
+    let x = Math.pow(a, d) % n;
+
+    // If x is 1 or n-1, skip to the next iteration
+    if (x == 1 || x == n - 1) {
+      continue;
+    }
+
+    // Square x repeatedly and reduce modulo n
+    for (let r = 1; r < s; r++) {
+      x = Math.pow(x, 2) % n;
+      if (x == 1) {
+        return false;
+      }
+      if (x == n - 1) {
+        break;
+      }
+    }
+
+    // If x is not n-1 at this point, then n is composite
+    if (x != n - 1) {
+      return false;
+    }
+  }
+
+  // If we get here, n is probably prime
+  return true;
+}
+```
