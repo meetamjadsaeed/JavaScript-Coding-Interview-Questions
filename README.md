@@ -1447,3 +1447,45 @@ function isPrime(n) {
   return true;
 }
 ```
+
+### Q66: Write a function that returns the number of ways to split a given string into substrings such that each substring is a palindrome
+
+```javascript
+// This function returns the number of ways to split a given string
+// into substrings such that each substring is a palindrome.
+function countPalindromeSubstrings(str) {
+  // Initialize a variable to keep track of the count of palindrome substrings.
+  let count = 0;
+
+  // Loop through each possible substring in the string.
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i; j < str.length; j++) {
+      // Get the current substring.
+      let substr = str.slice(i, j + 1);
+
+      // Check if the substring is a palindrome.
+      if (isPalindrome(substr)) {
+        // If the substring is a palindrome, increment the count.
+        count++;
+      }
+    }
+  }
+
+  // Return the count of palindrome substrings.
+  return count;
+}
+
+// This helper function checks if a given string is a palindrome.
+function isPalindrome(str) {
+  // Loop through the string from both ends, comparing each character.
+  for (let i = 0; i < Math.floor(str.length / 2); i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      // If any characters don't match, the string is not a palindrome.
+      return false;
+    }
+  }
+
+  // If all characters match, the string is a palindrome.
+  return true;
+}
+```
