@@ -1489,3 +1489,18 @@ function isPalindrome(str) {
   return true;
 }
 ```
+
+### Q67: Write a function to reverse a string.
+
+```javascript
+function reverseString(str) {
+  // convert string to array of characters
+  let arr = str.split("");
+  // reverse the order of the characters in the array
+  arr.reverse();
+  // convert the array back to a string
+  let reversedStr = arr.join("");
+  // return the reversed string
+  return reversedStr;
+}
+```
