@@ -1504,3 +1504,30 @@ function reverseString(str) {
   return reversedStr;
 }
 ```
+
+### Q68: Write a function to determine whether a string is a palindrome
+
+```javascript
+/**
+ * Checks whether a given string is a palindrome.
+ *
+ * @param {string} str - The string to check.
+ * @returns {boolean} - `true` if the string is a palindrome, `false` otherwise.
+ */
+function isPalindrome(str) {
+  // Convert the string to lowercase and remove any non-alphanumeric characters
+  const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  // Iterate through the first half of the cleaned string
+  for (let i = 0; i < cleanStr.length / 2; i++) {
+    // Check whether the current character matches its counterpart on the other side of the string
+    if (cleanStr[i] !== cleanStr[cleanStr.length - 1 - i]) {
+      // If not, the string is not a palindrome
+      return false;
+    }
+  }
+
+  // If we made it through the loop without returning false, the string is a palindrome
+  return true;
+}
+```
