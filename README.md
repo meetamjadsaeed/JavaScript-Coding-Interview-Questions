@@ -1531,3 +1531,23 @@ function isPalindrome(str) {
   return true;
 }
 ```
+
+### Q69: Write a function to find the minimum value in an array
+
+```javascript
+function findMin(arr) {
+  // Set the initial minimum value to the first element in the array
+  let min = arr[0];
+
+  // Loop through the array starting from the second element
+  for (let i = 1; i < arr.length; i++) {
+    // If the current element is less than the current minimum value, update the minimum value
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+
+  // Return the minimum value
+  return min;
+}
+```
