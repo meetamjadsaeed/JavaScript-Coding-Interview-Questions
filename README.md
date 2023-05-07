@@ -1551,3 +1551,28 @@ function findMin(arr) {
   return min;
 }
 ```
+
+### Q70: Write a function to determine whether two arrays contain the same elements
+
+```javascript
+function arraysEqual(arr1, arr2) {
+  // if the arrays have different lengths, they cannot be equal
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+
+  // sort both arrays so that we can compare them element by element
+  arr1.sort();
+  arr2.sort();
+
+  // compare each element of the two arrays
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+
+  // if all elements are equal, the arrays are equal
+  return true;
+}
+```
