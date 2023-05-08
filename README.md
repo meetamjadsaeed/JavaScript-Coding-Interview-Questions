@@ -1576,3 +1576,14 @@ function arraysEqual(arr1, arr2) {
   return true;
 }
 ```
+
+### Q71: Write a function to sort an array of integers in ascending order.
+
+```javascript
+function sortAscending(arr) {
+  // Step 1: Use the Array.prototype.sort() method to sort the array in ascending order
+  arr.sort((a, b) => a - b);
+
+  // Step 2: Return the sorted array
+  return arr;
+}```
