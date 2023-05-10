@@ -1586,4 +1586,54 @@ function sortAscending(arr) {
 
   // Step 2: Return the sorted array
   return arr;
-}```
+}
+```
+
+### Q72: Write a function to find the maximum value in a binary tree.
+
+```javascript
+// Binary tree node
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+// Function to find the maximum value in a binary tree
+function findMaxValue(root) {
+  if (root === null) {
+    // Empty tree, return null
+    return null;
+  }
+
+  let maxValue = root.value; // Assume root value is the maximum
+
+  // Recursive function to find maximum value in the left subtree
+  const leftMax = findMaxValue(root.left);
+  if (leftMax !== null && leftMax > maxValue) {
+    maxValue = leftMax; // Update maximum value if left subtree has a higher value
+  }
+
+  // Recursive function to find maximum value in the right subtree
+  const rightMax = findMaxValue(root.right);
+  if (rightMax !== null && rightMax > maxValue) {
+    maxValue = rightMax; // Update maximum value if right subtree has a higher value
+  }
+
+  return maxValue; // Return the maximum value in the binary tree
+}
+
+// Example usage
+const rootNode = new Node(10);
+rootNode.left = new Node(7);
+rootNode.right = new Node(15);
+rootNode.left.left = new Node(3);
+rootNode.left.right = new Node(9);
+rootNode.right.left = new Node(12);
+rootNode.right.right = new Node(17);
+
+const max = findMaxValue(rootNode);
+console.log("Maximum value in the binary tree:", max);
+```
