@@ -1637,3 +1637,48 @@ rootNode.right.right = new Node(17);
 const max = findMaxValue(rootNode);
 console.log("Maximum value in the binary tree:", max);
 ```
+
+### Q73: Write a function to merge two sorted arrays into a single sorted array.
+
+```javascript
+function mergeSortedArrays(arr1, arr2) {
+  // Create an empty array to store the merged result
+  let mergedArray = [];
+
+  // Initialize two pointers, one for each array
+  let pointer1 = 0;
+  let pointer2 = 0;
+
+  // Compare elements from both arrays and add the smaller element to the merged array
+  while (pointer1 < arr1.length && pointer2 < arr2.length) {
+    if (arr1[pointer1] <= arr2[pointer2]) {
+      mergedArray.push(arr1[pointer1]);
+      pointer1++;
+    } else {
+      mergedArray.push(arr2[pointer2]);
+      pointer2++;
+    }
+  }
+
+  // Add any remaining elements from the first array
+  while (pointer1 < arr1.length) {
+    mergedArray.push(arr1[pointer1]);
+    pointer1++;
+  }
+
+  // Add any remaining elements from the second array
+  while (pointer2 < arr2.length) {
+    mergedArray.push(arr2[pointer2]);
+    pointer2++;
+  }
+
+  // Return the merged array
+  return mergedArray;
+}
+
+// Test the function
+const arr1 = [1, 3, 5, 7];
+const arr2 = [2, 4, 6, 8];
+const merged = mergeSortedArrays(arr1, arr2);
+console.log(merged); // Output: [1, 2, 3, 4, 5, 6, 7, 8]
+```
