@@ -1682,3 +1682,30 @@ const arr2 = [2, 4, 6, 8];
 const merged = mergeSortedArrays(arr1, arr2);
 console.log(merged); // Output: [1, 2, 3, 4, 5, 6, 7, 8]
 ```
+
+### Q74: Write a function to find the median value of an array.
+
+```javascript
+/**
+ * Function to find the median value of an array.
+ * @param {Array} arr - The input array of numbers.
+ * @returns {number|null} - The median value of the array, or null if the array is empty.
+ */
+function findMedian(arr) {
+  if (arr.length === 0) {
+    return null; // Return null for an empty array
+  }
+
+  const sortedArr = arr.slice().sort((a, b) => a - b); // Create a sorted copy of the array
+
+  if (sortedArr.length % 2 === 0) {
+    // For arrays with an even number of elements
+    const midIndex = sortedArr.length / 2;
+    return (sortedArr[midIndex - 1] + sortedArr[midIndex]) / 2; // Average the two middle values
+  } else {
+    // For arrays with an odd number of elements
+    const midIndex = Math.floor(sortedArr.length / 2);
+    return sortedArr[midIndex]; // Return the middle value
+  }
+}
+```
