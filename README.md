@@ -1709,3 +1709,20 @@ function findMedian(arr) {
   }
 }
 ```
+
+### Q75: Write a function to calculate the sum of all elements in an array.
+
+```javascript
+/**
+ * Calculates the sum of all elements in an array.
+ * @param {number[]} arr - The array to calculate the sum of.
+ * @returns {number} The sum of all elements in the array.
+ */
+function calculateSum(arr) {
+  let sum = 0; // Initialize the sum variable to 0
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]; // Add each element to the sum
+  }
+  return sum; // Return the calculated sum
+}
+```
