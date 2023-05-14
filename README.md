@@ -1726,3 +1726,15 @@ function calculateSum(arr) {
   return sum; // Return the calculated sum
 }
 ```
+
+### Q76: Write a function to find the kth largest element in an array.
+
+```javascript
+function findKthLargest(arr, k) {
+  // Sort the array in descending order
+  arr.sort((a, b) => b - a);
+
+  // Return the kth largest element
+  return arr[k - 1];
+}
+```
