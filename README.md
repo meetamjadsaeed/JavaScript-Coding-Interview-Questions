@@ -1738,3 +1738,36 @@ function findKthLargest(arr, k) {
   return arr[k - 1];
 }
 ```
+
+### Q77: Write a function to convert a binary number to a decimal number
+
+```javascript
+/**
+ * Converts a binary number to a decimal number.
+ * @param {string} binary - The binary number to convert.
+ * @returns {number} The decimal equivalent of the binary number.
+ */
+function binaryToDecimal(binary) {
+  // Check if the input is a valid binary number
+  if (!/^[01]+$/.test(binary)) {
+    throw new Error("Invalid binary number");
+  }
+
+  // Reverse the binary string to start from the least significant bit
+  const reversedBinary = binary.split("").reverse().join("");
+
+  let decimal = 0;
+  for (let i = 0; i < reversedBinary.length; i++) {
+    const bit = parseInt(reversedBinary[i]);
+    // Add the decimal value of each bit to the result
+    decimal += bit * Math.pow(2, i);
+  }
+
+  return decimal;
+}
+
+// Example usage
+const binaryNumber = "101010";
+const decimalNumber = binaryToDecimal(binaryNumber);
+console.log(decimalNumber); // Output: 42
+```
