@@ -1771,3 +1771,41 @@ const binaryNumber = "101010";
 const decimalNumber = binaryToDecimal(binaryNumber);
 console.log(decimalNumber); // Output: 42
 ```
+
+### Q78: Write a function to reverse a linked list
+
+```javascript
+// Node class represents a single node in the linked list
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+// Function to reverse a linked list
+function reverseLinkedList(head) {
+  let prev = null; // Previous node initially null
+  let current = head; // Current node initially set to head
+  let next = null; // Next node initially null
+
+  // Iterate through the linked list
+  while (current !== null) {
+    // Store the next node
+    next = current.next;
+
+    // Reverse the pointer of the current node
+    current.next = prev;
+
+    // Move prev and current one step forward
+    prev = current;
+    current = next;
+  }
+
+  // Finally, update the head of the reversed linked list
+  head = prev;
+
+  // Return the reversed linked list
+  return head;
+}
+```
