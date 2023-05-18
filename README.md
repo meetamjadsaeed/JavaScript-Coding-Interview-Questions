@@ -1809,3 +1809,33 @@ function reverseLinkedList(head) {
   return head;
 }
 ```
+
+### Q79: Write a function to implement binary search.
+
+```javascript
+/**
+ * Binary search algorithm implementation.
+ *
+ * @param {Array} sortedArray - A sorted array of elements.
+ * @param {*} target - The element to search for.
+ * @returns {number} - The index of the target element in the array, or -1 if not found.
+ */
+function binarySearch(sortedArray, target) {
+  let left = 0; // The leftmost index of the search range.
+  let right = sortedArray.length - 1; // The rightmost index of the search range.
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2); // Calculate the middle index.
+
+    if (sortedArray[mid] === target) {
+      return mid; // Found the target element, return its index.
+    } else if (sortedArray[mid] < target) {
+      left = mid + 1; // Target is in the right half, adjust the search range.
+    } else {
+      right = mid - 1; // Target is in the left half, adjust the search range.
+    }
+  }
+
+  return -1; // Target element was not found in the array.
+}
+```
