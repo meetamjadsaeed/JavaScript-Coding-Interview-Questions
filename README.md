@@ -1839,3 +1839,61 @@ function binarySearch(sortedArray, target) {
   return -1; // Target element was not found in the array.
 }
 ```
+
+### Q80: Write a function to determine whether a binary tree is a binary search tree.
+
+```javascript
+/**
+ * Binary search algorithm implementation.
+ *
+ * @param {Array} sortedArray - A sorted array of elements.
+ * @param {*} target - The element to search for.
+ * @returns {number} - The index of the target element in the array, or -1 if not found.
+ */
+// Node class represents a node in the binary tree
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+// Function to check if a binary tree is a binary search tree
+function isBinarySearchTree(root) {
+  // Recursive helper function to check the validity of the binary search tree
+  function isBSTUtil(node, min, max) {
+    // Base case: an empty tree is a valid binary search tree
+    if (node === null) {
+      return true;
+    }
+
+    // If the node's value is outside the valid range, it's not a BST
+    if (node.value <= min || node.value >= max) {
+      return false;
+    }
+
+    // Recursively check the left and right subtrees, updating the valid range
+    return (
+      isBSTUtil(node.left, min, node.value) &&
+      isBSTUtil(node.right, node.value, max)
+    );
+  }
+
+  // Start the recursive check from the root node with an initial range of negative and positive infinity
+  return isBSTUtil(root, -Infinity, Infinity);
+}
+
+// Create a binary tree
+const root = new Node(4);
+root.left = new Node(2);
+root.right = new Node(6);
+root.left.left = new Node(1);
+root.left.right = new Node(3);
+root.right.left = new Node(5);
+root.right.right = new Node(7);
+
+// Check if the binary tree is a binary search tree
+const isBST = isBinarySearchTree(root);
+console.log(isBST); // Output: true
+```
