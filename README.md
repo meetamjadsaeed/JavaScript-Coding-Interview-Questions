@@ -1897,3 +1897,80 @@ root.right.right = new Node(7);
 const isBST = isBinarySearchTree(root);
 console.log(isBST); // Output: true
 ```
+
+### Q81: Write a function to implement a stack using an array.
+
+```javascript
+// Create a class called Stack
+class Stack {
+  constructor() {
+    // Initialize an empty array to store the stack elements
+    this.stack = [];
+  }
+
+  // Function to add an element to the top of the stack
+  push(element) {
+    // Add the element to the end of the array
+    this.stack.push(element);
+  }
+
+  // Function to remove and return the topmost element from the stack
+  pop() {
+    // Check if the stack is empty
+    if (this.isEmpty()) {
+      return "Stack is empty.";
+    }
+
+    // Remove and return the last element from the array
+    return this.stack.pop();
+  }
+
+  // Function to return the topmost element in the stack without removing it
+  peek() {
+    // Check if the stack is empty
+    if (this.isEmpty()) {
+      return "Stack is empty.";
+    }
+
+    // Return the last element from the array
+    return this.stack[this.stack.length - 1];
+  }
+
+  // Function to check if the stack is empty
+  isEmpty() {
+    // Return true if the stack length is 0, indicating an empty stack
+    return this.stack.length === 0;
+  }
+
+  // Function to return the size of the stack
+  size() {
+    // Return the length of the stack array
+    return this.stack.length;
+  }
+
+  // Function to print the elements of the stack
+  print() {
+    // Check if the stack is empty
+    if (this.isEmpty()) {
+      console.log("Stack is empty.");
+    } else {
+      // Iterate over the stack array and print each element
+      for (let i = this.stack.length - 1; i >= 0; i--) {
+        console.log(this.stack[i]);
+      }
+    }
+  }
+}
+
+// Create an instance of the Stack class
+const stack = new Stack();
+
+// Example usage:
+stack.push(5); // Add 5 to the stack
+stack.push(10); // Add 10 to the stack
+console.log(stack.peek()); // Output: 10 (topmost element)
+console.log(stack.size()); // Output: 2 (number of elements in the stack)
+stack.pop(); // Remove and return the topmost element from the stack
+console.log(stack.size()); // Output: 1
+stack.print(); // Output: 5
+```
