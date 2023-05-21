@@ -1974,3 +1974,65 @@ stack.pop(); // Remove and return the topmost element from the stack
 console.log(stack.size()); // Output: 1
 stack.print(); // Output: 5
 ```
+
+### Q82: Write a function to implement a queue using an array.
+
+```javascript
+// Queue class
+class Queue {
+  constructor() {
+    this.items = []; // Initialize an empty array to store the queue elements
+  }
+
+  // Add an element to the queue
+  enqueue(element) {
+    this.items.push(element); // Push the element to the end of the array
+  }
+
+  // Remove an element from the front of the queue
+  dequeue() {
+    if (this.isEmpty()) {
+      return "Underflow"; // If the queue is empty, return "Underflow"
+    }
+    return this.items.shift(); // Remove and return the first element of the array
+  }
+
+  // Get the front element of the queue without removing it
+  front() {
+    if (this.isEmpty()) {
+      return "No elements in the queue"; // If the queue is empty, return a message
+    }
+    return this.items[0]; // Return the first element of the array
+  }
+
+  // Check if the queue is empty
+  isEmpty() {
+    return this.items.length === 0; // Return true if the array length is 0, indicating an empty queue
+  }
+
+  // Get the size of the queue
+  size() {
+    return this.items.length; // Return the number of elements in the array
+  }
+
+  // Print the elements of the queue
+  printQueue() {
+    let str = "";
+    for (let i = 0; i < this.items.length; i++) {
+      str += this.items[i] + " ";
+    }
+    console.log(str); // Print the elements of the queue
+  }
+}
+
+// Example usage:
+const queue = new Queue(); // Create a new instance of the Queue class
+queue.enqueue(1); // Add elements to the queue
+queue.enqueue(2);
+queue.enqueue(3);
+queue.printQueue(); // Print the elements of the queue: 1 2 3
+console.log(queue.front()); // Print the front element of the queue: 1
+console.log(queue.dequeue()); // Remove and return the first element of the queue: 1
+console.log(queue.size()); // Print the size of the queue: 2
+console.log(queue.isEmpty()); // Check if the queue is empty: false
+```
