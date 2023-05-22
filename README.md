@@ -2036,3 +2036,79 @@ console.log(queue.dequeue()); // Remove and return the first element of the queu
 console.log(queue.size()); // Print the size of the queue: 2
 console.log(queue.isEmpty()); // Check if the queue is empty: false
 ```
+
+### Q83: Write a function to implement a stack using a linked list.
+
+```javascript
+// Node class to represent individual elements in the linked list
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+// Stack class using linked list implementation
+class Stack {
+  constructor() {
+    this.top = null; // Points to the topmost element in the stack
+    this.size = 0; // Stores the number of elements in the stack
+  }
+
+  // Function to check if the stack is empty
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  // Function to get the number of elements in the stack
+  getSize() {
+    return this.size;
+  }
+
+  // Function to push an element onto the stack
+  push(data) {
+    const newNode = new Node(data);
+    newNode.next = this.top;
+    this.top = newNode;
+    this.size++;
+  }
+
+  // Function to remove and return the topmost element from the stack
+  pop() {
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    const poppedNode = this.top;
+    this.top = poppedNode.next;
+    poppedNode.next = null;
+    this.size--;
+    return poppedNode.data;
+  }
+
+  // Function to get the topmost element in the stack without removing it
+  peek() {
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    return this.top.data;
+  }
+}
+
+// Example usage:
+const stack = new Stack();
+
+stack.push(10);
+stack.push(20);
+stack.push(30);
+
+console.log(stack.peek()); // Output: 30
+
+console.log(stack.pop()); // Output: 30
+console.log(stack.pop()); // Output: 20
+
+console.log(stack.getSize()); // Output: 1
+
+console.log(stack.isEmpty()); // Output: false
+```
