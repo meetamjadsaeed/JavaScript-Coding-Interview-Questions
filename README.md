@@ -2112,3 +2112,34 @@ console.log(stack.getSize()); // Output: 1
 
 console.log(stack.isEmpty()); // Output: false
 ```
+
+### Q84: Write a function to find the intersection of two arrays.
+
+```javascript
+// Function to find the intersection of two arrays
+function findIntersection(array1, array2) {
+  // Create a Set from the first array
+  const set1 = new Set(array1);
+
+  // Create an empty array to store the intersection
+  const intersection = [];
+
+  // Iterate through the second array
+  for (let i = 0; i < array2.length; i++) {
+    // Check if the current element exists in the first array
+    if (set1.has(array2[i])) {
+      // If it does, add it to the intersection array
+      intersection.push(array2[i]);
+    }
+  }
+
+  // Return the intersection array
+  return intersection;
+}
+
+// Example usage
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [4, 5, 6, 7, 8];
+const result = findIntersection(array1, array2);
+console.log(result); // Output: [4, 5]
+```
