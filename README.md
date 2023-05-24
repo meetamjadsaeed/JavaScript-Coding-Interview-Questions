@@ -2143,3 +2143,37 @@ const array2 = [4, 5, 6, 7, 8];
 const result = findIntersection(array1, array2);
 console.log(result); // Output: [4, 5]
 ```
+
+### Q85: Write a function to find the intersection of two arrays.
+
+```javascript
+// Function to find the intersection of two arrays
+function findIntersection(array1, array2) {
+  // Create a Set from the first array to remove duplicate elements
+  const set1 = new Set(array1);
+
+  // Create a new Set to store the intersection elements
+  const intersectionSet = new Set();
+
+  // Iterate over the second array
+  for (let i = 0; i < array2.length; i++) {
+    // Check if the current element exists in the first Set
+    if (set1.has(array2[i])) {
+      // If the element is found in both arrays, add it to the intersection set
+      intersectionSet.add(array2[i]);
+    }
+  }
+
+  // Convert the intersection Set back to an array
+  const intersectionArray = Array.from(intersectionSet);
+
+  // Return the array containing the intersection elements
+  return intersectionArray;
+}
+
+// Example usage
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [4, 5, 6, 7, 8];
+const intersection = findIntersection(array1, array2);
+console.log(intersection);
+```
