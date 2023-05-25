@@ -2177,3 +2177,35 @@ const array2 = [4, 5, 6, 7, 8];
 const intersection = findIntersection(array1, array2);
 console.log(intersection);
 ```
+
+### Q86: Write a function to determine whether a linked list contains a cycle.
+
+```javascript
+/**
+ * Function to determine whether a linked list contains a cycle.
+ * @param {ListNode} head - The head of the linked list.
+ * @return {boolean} - True if the linked list contains a cycle, false otherwise.
+ */
+function hasCycle(head) {
+  // Initialize two pointers: slow and fast
+  let slow = head;
+  let fast = head;
+
+  // Iterate until either the fast pointer reaches the end of the list
+  // or they both meet at the same node (indicating a cycle)
+  while (fast && fast.next) {
+    // Move slow pointer by one step
+    slow = slow.next;
+    // Move fast pointer by two steps
+    fast = fast.next.next;
+
+    // Check if slow and fast pointers meet (cycle detected)
+    if (slow === fast) {
+      return true;
+    }
+  }
+
+  // No cycle found
+  return false;
+}
+```
