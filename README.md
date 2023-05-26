@@ -2209,3 +2209,32 @@ function hasCycle(head) {
   return false;
 }
 ```
+
+### Q87: Write a function to find the longest common prefix of an array of strings.
+
+```javascript
+function findLongestCommonPrefix(strings) {
+  // Return an empty string if the array is empty
+  if (strings.length === 0) {
+    return "";
+  }
+
+  // Set the initial prefix as the first string in the array
+  let prefix = strings[0];
+
+  // Iterate over the remaining strings in the array
+  for (let i = 1; i < strings.length; i++) {
+    // Keep removing characters from the prefix until it becomes a prefix of the current string
+    while (strings[i].indexOf(prefix) !== 0) {
+      prefix = prefix.slice(0, prefix.length - 1);
+
+      // If the prefix becomes empty, there is no common prefix among the strings
+      if (prefix === "") {
+        return "";
+      }
+    }
+  }
+
+  return prefix;
+}
+```
