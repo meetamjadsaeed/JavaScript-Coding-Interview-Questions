@@ -2238,3 +2238,21 @@ function findLongestCommonPrefix(strings) {
   return prefix;
 }
 ```
+
+### Q88: Write a function to reverse the order of words in a sentence.
+
+```javascript
+function reverseWords(sentence) {
+  // Split the sentence into an array of words
+  var words = sentence.split(" ");
+
+  // Reverse the array of words
+  var reversedWords = words.reverse();
+
+  // Join the reversed words back into a sentence
+  var reversedSentence = reversedWords.join(" ");
+
+  // Return the reversed sentence
+  return reversedSentence;
+}
+```
