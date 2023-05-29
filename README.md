@@ -2288,3 +2288,36 @@ const arr = [64, 25, 12, 22, 11];
 const sortedArr = selectionSort(arr);
 console.log(sortedArr);
 ```
+
+### Q90: Write a function to implement insertion sort.
+
+```javascript
+// Function to implement insertion sort
+function insertionSort(arr) {
+  // Iterate through the array starting from the second element
+  for (let i = 1; i < arr.length; i++) {
+    // Select the current element to be inserted
+    let currentValue = arr[i];
+
+    // Find the correct position to insert the current element
+    let j = i - 1;
+    while (j >= 0 && arr[j] > currentValue) {
+      // Shift elements greater than the current value to the right
+      arr[j + 1] = arr[j];
+      j--;
+    }
+
+    // Insert the current value at the correct position
+    arr[j + 1] = currentValue;
+  }
+
+  // Return the sorted array
+  return arr;
+}
+
+// Example usage:
+let numbers = [5, 3, 8, 1, 2, 7];
+console.log("Before sorting:", numbers);
+numbers = insertionSort(numbers);
+console.log("After sorting:", numbers);
+```
