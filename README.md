@@ -2321,3 +2321,31 @@ console.log("Before sorting:", numbers);
 numbers = insertionSort(numbers);
 console.log("After sorting:", numbers);
 ```
+
+### Q91: Write a function to implement bubble sort.
+
+```javascript
+// Bubble sort implementation
+function bubbleSort(arr) {
+  const len = arr.length;
+
+  // Iterate over the array
+  for (let i = 0; i < len - 1; i++) {
+    // Inner loop for comparisons
+    for (let j = 0; j < len - 1 - i; j++) {
+      // Compare adjacent elements
+      if (arr[j] > arr[j + 1]) {
+        // Swap elements if they are in the wrong order
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+
+  return arr;
+}
+
+// Usage example
+const numbers = [5, 3, 8, 4, 2];
+console.log("Before sorting:", numbers);
+console.log("After sorting:", bubbleSort(numbers));
+```
