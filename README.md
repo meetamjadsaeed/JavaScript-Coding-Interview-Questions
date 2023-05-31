@@ -2349,3 +2349,56 @@ const numbers = [5, 3, 8, 4, 2];
 console.log("Before sorting:", numbers);
 console.log("After sorting:", bubbleSort(numbers));
 ```
+
+### Q92: Write a function to implement quicksort.
+
+```javascript
+// Function to implement quicksort
+function quicksort(arr, low, high) {
+  // Base case: If the array has less than 2 elements, it is already sorted
+  if (low < high) {
+    // Partition the array and get the index of the pivot
+    const pivotIndex = partition(arr, low, high);
+
+    // Recursively sort the left and right sub-arrays
+    quicksort(arr, low, pivotIndex - 1);
+    quicksort(arr, pivotIndex + 1, high);
+  }
+}
+
+// Function to partition the array
+function partition(arr, low, high) {
+  // Choose the rightmost element as the pivot
+  const pivot = arr[high];
+
+  // Index of the smaller element
+  let i = low - 1;
+
+  // Iterate through the array from low to high-1
+  for (let j = low; j < high; j++) {
+    // If the current element is smaller than or equal to the pivot, swap it with the element at i+1
+    if (arr[j] <= pivot) {
+      i++;
+      swap(arr, i, j);
+    }
+  }
+
+  // Swap the pivot with the element at i+1, so that the pivot is in its correct sorted position
+  swap(arr, i + 1, high);
+
+  // Return the index of the pivot
+  return i + 1;
+}
+
+// Function to swap two elements in the array
+function swap(arr, i, j) {
+  const temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+
+// Usage example
+const array = [5, 2, 9, 1, 3, 7];
+quicksort(array, 0, array.length - 1);
+console.log(array); // Output: [1, 2, 3, 5, 7, 9]
+```
