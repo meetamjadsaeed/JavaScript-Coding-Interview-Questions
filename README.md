@@ -2402,3 +2402,58 @@ const array = [5, 2, 9, 1, 3, 7];
 quicksort(array, 0, array.length - 1);
 console.log(array); // Output: [1, 2, 3, 5, 7, 9]
 ```
+
+### Q93: Write a function to implement mergesort.
+
+```javascript
+// Function to implement Merge Sort
+function mergeSort(arr) {
+  // Base case: If the array has only one element or is empty, it is already sorted
+  if (arr.length <= 1) {
+    return arr;
+  }
+
+  // Find the middle index of the array
+  const middle = Math.floor(arr.length / 2);
+
+  // Split the array into two halves
+  const left = arr.slice(0, middle);
+  const right = arr.slice(middle);
+
+  // Recursively sort the left and right halves
+  const sortedLeft = mergeSort(left);
+  const sortedRight = mergeSort(right);
+
+  // Merge the sorted halves
+  return merge(sortedLeft, sortedRight);
+}
+
+// Function to merge two sorted arrays
+function merge(left, right) {
+  let mergedArray = [];
+
+  // Compare the elements of the left and right arrays and merge them in sorted order
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      mergedArray.push(left.shift());
+    } else {
+      mergedArray.push(right.shift());
+    }
+  }
+
+  // Add any remaining elements from the left or right array
+  while (left.length) {
+    mergedArray.push(left.shift());
+  }
+  while (right.length) {
+    mergedArray.push(right.shift());
+  }
+
+  return mergedArray;
+}
+
+// Example usage
+const arr = [9, 5, 2, 7, 1, 6];
+const sortedArray = mergeSort(arr);
+console.log(sortedArray);
+```
