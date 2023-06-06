@@ -2539,3 +2539,37 @@ const array = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 const largestSum = findLargestSumSubarray(array);
 console.log("Largest sum of contiguous subarray:", largestSum);
 ```
+
+### Q96: Write a function to determine whether a string is an anagram of another string.
+
+```javascript
+/**
+ * Checks whether a string is an anagram of another string.
+ * @param {string} str1 - The first string.
+ * @param {string} str2 - The second string.
+ * @returns {boolean} - True if the strings are anagrams, false otherwise.
+ */
+function isAnagram(str1, str2) {
+  // Convert the strings to lowercase and remove non-alphabetic characters
+  str1 = str1.toLowerCase().replace(/[^a-z]/g, "");
+  str2 = str2.toLowerCase().replace(/[^a-z]/g, "");
+
+  // Check if the strings have the same length
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  // Convert the strings to arrays and sort them
+  const sortedStr1 = str1.split("").sort().join("");
+  const sortedStr2 = str2.split("").sort().join("");
+
+  // Compare the sorted strings
+  return sortedStr1 === sortedStr2;
+}
+
+// Example usage:
+const string1 = "listen";
+const string2 = "silent";
+const result = isAnagram(string1, string2);
+console.log(result); // Output: true
+```
