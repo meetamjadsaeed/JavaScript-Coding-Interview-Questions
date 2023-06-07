@@ -2573,3 +2573,104 @@ const string2 = "silent";
 const result = isAnagram(string1, string2);
 console.log(result); // Output: true
 ```
+
+### Q97: Write a function to implement a binary search tree.
+
+```javascript
+// Define a class for BST nodes
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+// Define a class for the Binary Search Tree
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
+
+  // Function to insert a value into the BST
+  insert(value) {
+    // Create a new node with the given value
+    const newNode = new Node(value);
+
+    // If the BST is empty, set the new node as the root
+    if (this.root === null) {
+      this.root = newNode;
+    } else {
+      // Call the private recursive insert function
+      this.insertNode(this.root, newNode);
+    }
+  }
+
+  // Private recursive function to insert a node into the BST
+  insertNode(node, newNode) {
+    // If the value is less than the current node, go to the left subtree
+    if (newNode.value < node.value) {
+      // If the left child is null, insert the new node here
+      if (node.left === null) {
+        node.left = newNode;
+      } else {
+        // Recursively call insertNode on the left child
+        this.insertNode(node.left, newNode);
+      }
+    } else {
+      // If the value is greater than or equal to the current node, go to the right subtree
+      // If the right child is null, insert the new node here
+      if (node.right === null) {
+        node.right = newNode;
+      } else {
+        // Recursively call insertNode on the right child
+        this.insertNode(node.right, newNode);
+      }
+    }
+  }
+
+  // Function to search for a value in the BST
+  search(value) {
+    // Call the private recursive search function
+    return this.searchNode(this.root, value);
+  }
+
+  // Private recursive function to search for a value in the BST
+  searchNode(node, value) {
+    // If the node is null, the value is not found in the BST
+    if (node === null) {
+      return false;
+    }
+
+    // If the value is less than the current node, search in the left subtree
+    if (value < node.value) {
+      return this.searchNode(node.left, value);
+    }
+
+    // If the value is greater than the current node, search in the right subtree
+    if (value > node.value) {
+      return this.searchNode(node.right, value);
+    }
+
+    // If the value is equal to the current node, it is found in the BST
+    return true;
+  }
+}
+
+// Example usage:
+
+// Create a new BST
+const bst = new BinarySearchTree();
+
+// Insert values into the BST
+bst.insert(8);
+bst.insert(3);
+bst.insert(10);
+bst.insert(1);
+bst.insert(6);
+bst.insert(14);
+
+// Search for a value in the BST
+console.log(bst.search(6)); // Output: true
+console.log(bst.search(12)); // Output: false
+```
