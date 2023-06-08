@@ -2674,3 +2674,81 @@ bst.insert(14);
 console.log(bst.search(6)); // Output: true
 console.log(bst.search(12)); // Output: false
 ```
+
+### Q98: Write a function to find the shortest path between two nodes in a graph.
+
+```javascript
+// Function to find the shortest path between two nodes in a graph
+function findShortestPath(graph, startNode, endNode) {
+  // Create a priority queue to store the nodes to be visited
+  const queue = new PriorityQueue();
+
+  // Create a map to store the shortest distance from the start node to each node
+  const distances = new Map();
+
+  // Create a map to store the previous node in the shortest path
+  const previous = new Map();
+
+  // Initialize the distances and previous nodes
+  for (const node in graph) {
+    if (node === startNode) {
+      distances.set(node, 0);
+      queue.enqueue(node, 0); // Add the start node to the queue with a priority of 0
+    } else {
+      distances.set(node, Infinity);
+      queue.enqueue(node, Infinity); // Add other nodes to the queue with a priority of Infinity
+    }
+    previous.set(node, null);
+  }
+
+  // Iterate until the queue is empty
+  while (!queue.isEmpty()) {
+    const currentNode = queue.dequeue().element;
+
+    // Stop if we have reached the end node
+    if (currentNode === endNode) {
+      break;
+    }
+
+    // Explore the neighbors of the current node
+    for (const neighbor in graph[currentNode]) {
+      // Calculate the new distance to the neighbor
+      const distance =
+        distances.get(currentNode) + graph[currentNode][neighbor];
+
+      // If the new distance is shorter than the current distance, update it
+      if (distance < distances.get(neighbor)) {
+        distances.set(neighbor, distance);
+        previous.set(neighbor, currentNode);
+        queue.enqueue(neighbor, distance);
+      }
+    }
+  }
+
+  // Build the shortest path by backtracking from the end node to the start node
+  const shortestPath = [];
+  let currentNode = endNode;
+
+  while (currentNode !== null) {
+    shortestPath.unshift(currentNode);
+    currentNode = previous.get(currentNode);
+  }
+
+  return shortestPath;
+}
+
+// Example usage:
+const graph = {
+  A: { B: 5, C: 2 },
+  B: { A: 5, C: 1, D: 3 },
+  C: { A: 2, B: 1, D: 2 },
+  D: { B: 3, C: 2, E: 4 },
+  E: { D: 4 },
+};
+
+const startNode = "A";
+const endNode = "E";
+
+const shortestPath = findShortestPath(graph, startNode, endNode);
+console.log("Shortest path:", shortestPath);
+```
