@@ -2752,3 +2752,75 @@ const endNode = "E";
 const shortestPath = findShortestPath(graph, startNode, endNode);
 console.log("Shortest path:", shortestPath);
 ```
+
+### Q99: Write a function to implement Dijkstra's algorithm.
+
+```javascript
+// Function to implement Dijkstra's algorithm
+function dijkstra(graph, startNode) {
+  // Create a dictionary to store the shortest distances from the start node to all other nodes
+  const distances = {};
+
+  // Create a dictionary to store the previous nodes in the shortest path
+  const previous = {};
+
+  // Create a set to store the visited nodes
+  const visited = new Set();
+
+  // Set the initial distances to infinity for all nodes except the start node
+  for (let node in graph) {
+    distances[node] = Infinity;
+  }
+  distances[startNode] = 0;
+
+  // Main loop to visit all nodes
+  while (Object.keys(visited).length !== Object.keys(graph).length) {
+    // Find the node with the smallest distance that has not been visited yet
+    let smallestNode = null;
+    for (let node in graph) {
+      if (
+        !visited.has(node) &&
+        (smallestNode === null || distances[node] < distances[smallestNode])
+      ) {
+        smallestNode = node;
+      }
+    }
+
+    // Mark the current node as visited
+    visited.add(smallestNode);
+
+    // Update the distances and previous nodes for all neighboring nodes of the current node
+    for (let neighbor in graph[smallestNode]) {
+      let distance = graph[smallestNode][neighbor];
+      let totalDistance = distances[smallestNode] + distance;
+
+      // If the total distance is smaller than the current distance, update it
+      if (totalDistance < distances[neighbor]) {
+        distances[neighbor] = totalDistance;
+        previous[neighbor] = smallestNode;
+      }
+    }
+  }
+
+  // Return the shortest distances and previous nodes
+  return { distances, previous };
+}
+
+// Example usage:
+
+// Define the graph as an adjacency list
+const graph = {
+  A: { B: 5, C: 2 },
+  B: { A: 5, C: 1, D: 3 },
+  C: { A: 2, B: 1, D: 1 },
+  D: { B: 3, C: 1, E: 4 },
+  E: { D: 4 },
+};
+
+// Run Dijkstra's algorithm starting from node A
+const result = dijkstra(graph, "A");
+
+// Print the shortest distances and previous nodes
+console.log("Shortest distances:", result.distances);
+console.log("Previous nodes:", result.previous);
+```
