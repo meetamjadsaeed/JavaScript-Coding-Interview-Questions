@@ -2824,3 +2824,118 @@ const result = dijkstra(graph, "A");
 console.log("Shortest distances:", result.distances);
 console.log("Previous nodes:", result.previous);
 ```
+
+### Q100: Write a function to implement the A\* algorithm.
+
+```javascript
+// Define a class to represent a node in the graph
+class Node {
+  constructor(x, y, cost, heuristic) {
+    this.x = x; // x-coordinate of the node
+    this.y = y; // y-coordinate of the node
+    this.cost = cost; // cost to reach this node from the start node
+    this.heuristic = heuristic; // heuristic value (estimated cost) from this node to the goal node
+    this.totalCost = cost + heuristic; // total cost of this node (cost + heuristic)
+    this.parent = null; // parent node from which this node is reached
+  }
+}
+
+// Function to implement the A* algorithm
+function aStarAlgorithm(graph, start, goal) {
+  // Create an open set and add the start node to it
+  const openSet = [start];
+
+  // Create a closed set to keep track of visited nodes
+  const closedSet = new Set();
+
+  // Create a map to store the final path from start to goal
+  const path = new Map();
+
+  // Set the cost of the start node to 0
+  start.cost = 0;
+
+  // Set the heuristic value of the start node
+  start.heuristic = calculateHeuristic(start, goal);
+
+  while (openSet.length > 0) {
+    // Find the node in the open set with the lowest total cost
+    const currentNode = findNodeWithLowestCost(openSet);
+
+    // Check if the current node is the goal node
+    if (currentNode === goal) {
+      // Build the path from start to goal
+      return buildPath(path, goal);
+    }
+
+    // Remove the current node from the open set
+    openSet.splice(openSet.indexOf(currentNode), 1);
+
+    // Add the current node to the closed set
+    closedSet.add(currentNode);
+
+    // Explore the neighbors of the current node
+    const neighbors = graph.getNeighbors(currentNode);
+    for (const neighbor of neighbors) {
+      // Skip if the neighbor is already in the closed set
+      if (closedSet.has(neighbor)) {
+        continue;
+      }
+
+      // Calculate the cost to reach the neighbor from the current node
+      const newCost = currentNode.cost + graph.getCost(currentNode, neighbor);
+
+      // Check if the neighbor is not in the open set or the new cost is lower than the previous cost
+      if (!openSet.includes(neighbor) || newCost < neighbor.cost) {
+        // Update the cost of the neighbor
+        neighbor.cost = newCost;
+
+        // Set the heuristic value of the neighbor
+        neighbor.heuristic = calculateHeuristic(neighbor, goal);
+
+        // Update the total cost of the neighbor
+        neighbor.totalCost = newCost + neighbor.heuristic;
+
+        // Set the parent of the neighbor to the current node
+        neighbor.parent = currentNode;
+
+        // Add the neighbor to the open set if it's not already in it
+        if (!openSet.includes(neighbor)) {
+          openSet.push(neighbor);
+        }
+      }
+    }
+  }
+
+  // No path found from start to goal
+  return null;
+}
+
+// Helper function to calculate the heuristic value between two nodes (Euclidean distance in this example)
+function calculateHeuristic(node1, node2) {
+  const dx = node1.x - node2.x;
+  const dy = node1.y - node2.y;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+// Helper function to find the node with the lowest total cost in the open set
+function findNodeWithLowestCost(nodes) {
+  let lowestCostNode = nodes[0];
+  for (let i = 1; i < nodes.length; i++) {
+    if (nodes[i].totalCost < lowestCostNode.totalCost) {
+      lowestCostNode = nodes[i];
+    }
+  }
+  return lowestCostNode;
+}
+
+// Helper function to build the path from start to goal
+function buildPath(path, goal) {
+  const result = [];
+  let currentNode = goal;
+  while (currentNode !== null) {
+    result.unshift(currentNode);
+    currentNode = path.get(currentNode);
+  }
+  return result;
+}
+```
