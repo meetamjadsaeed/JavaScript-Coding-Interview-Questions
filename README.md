@@ -2939,3 +2939,79 @@ function buildPath(path, goal) {
   return result;
 }
 ```
+
+### Q101: Write a function to find the maximum flow in a network.
+
+```javascript
+// Function to find the maximum flow in a network using Ford-Fulkerson algorithm
+function findMaxFlow(graph, source, sink) {
+  const residualGraph = JSON.parse(JSON.stringify(graph)); // Create a deep copy of the original graph
+
+  let maxFlow = 0; // Initialize the maximum flow to 0
+
+  // Augment the flow while there is a path from source to sink
+  while (bfs(residualGraph, source, sink)) {
+    let pathFlow = Infinity; // Initialize the path flow to positive infinity
+
+    // Find the maximum flow that can be pushed in the current path
+    for (let v = sink; v !== source; v = residualGraph[v].parent) {
+      const u = residualGraph[v].parent;
+      pathFlow = Math.min(pathFlow, residualGraph[u][v]);
+    }
+
+    // Update the residual capacities of the edges and reverse edges along the path
+    for (let v = sink; v !== source; v = residualGraph[v].parent) {
+      const u = residualGraph[v].parent;
+      residualGraph[u][v] -= pathFlow; // Reduce capacity of forward edge
+      residualGraph[v][u] += pathFlow; // Increase capacity of reverse edge
+    }
+
+    maxFlow += pathFlow; // Add the path flow to the maximum flow
+  }
+
+  return maxFlow; // Return the maximum flow
+}
+
+// Function to perform Breadth-First Search (BFS) to check if there is a path from source to sink
+function bfs(graph, source, sink) {
+  const visited = new Array(graph.length).fill(false); // Initialize visited array
+  const queue = []; // Create a queue for BFS
+  queue.push(source); // Enqueue the source vertex
+  visited[source] = true; // Mark the source as visited
+
+  while (queue.length > 0) {
+    const u = queue.shift(); // Dequeue a vertex from the queue
+
+    // Visit all adjacent vertices of the dequeued vertex
+    for (let v = 0; v < graph.length; v++) {
+      if (!visited[v] && graph[u][v] > 0) {
+        queue.push(v); // Enqueue the adjacent vertex
+        visited[v] = true; // Mark the vertex as visited
+        graph[v].parent = u; // Store the parent of the vertex for path reconstruction
+
+        if (v === sink) {
+          return true; // If we reach the sink, there is a path from source to sink
+        }
+      }
+    }
+  }
+
+  return false; // If no path is found from source to sink, return false
+}
+
+// Example usage:
+const graph = [
+  [0, 16, 13, 0, 0, 0],
+  [0, 0, 10, 12, 0, 0],
+  [0, 4, 0, 0, 14, 0],
+  [0, 0, 9, 0, 0, 20],
+  [0, 0, 0, 7, 0, 4],
+  [0, 0, 0, 0, 0, 0],
+];
+
+const source = 0;
+const sink = 5;
+
+const maxFlow = findMaxFlow(graph, source, sink);
+console.log("Maximum flow:", maxFlow);
+```
