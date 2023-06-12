@@ -3015,3 +3015,97 @@ const sink = 5;
 const maxFlow = findMaxFlow(graph, source, sink);
 console.log("Maximum flow:", maxFlow);
 ```
+
+### Q102: Write a function to find the shortest path in a network.
+
+```javascript
+// Function to find the shortest path in a network using Dijkstra's algorithm
+function findShortestPath(network, startNode, endNode) {
+  // Create a map to store the distance from the start node to each node in the network
+  const distanceMap = new Map();
+
+  // Create a map to store the previous node in the shortest path from the start node
+  const previousNodeMap = new Map();
+
+  // Create a set to keep track of visited nodes
+  const visitedNodes = new Set();
+
+  // Set the distance of the start node to 0 and the distance of all other nodes to infinity
+  network.forEach((node) => {
+    distanceMap.set(node, node === startNode ? 0 : Infinity);
+  });
+
+  // While there are unvisited nodes
+  while (visitedNodes.size < network.length) {
+    // Find the node with the minimum distance that hasn't been visited yet
+    let currentNode = null;
+    let minDistance = Infinity;
+
+    distanceMap.forEach((distance, node) => {
+      if (!visitedNodes.has(node) && distance < minDistance) {
+        currentNode = node;
+        minDistance = distance;
+      }
+    });
+
+    // If we can't find a valid minimum distance, break the loop
+    if (currentNode === null) break;
+
+    // Mark the current node as visited
+    visitedNodes.add(currentNode);
+
+    // Update the distances of the neighboring nodes
+    const neighbors = network.get(currentNode);
+
+    neighbors.forEach((neighbor) => {
+      const distance = minDistance + neighbor.distance;
+      if (distance < distanceMap.get(neighbor.node)) {
+        distanceMap.set(neighbor.node, distance);
+        previousNodeMap.set(neighbor.node, currentNode);
+      }
+    });
+  }
+
+  // Build the shortest path from the end node to the start node
+  const shortestPath = [];
+  let currentNode = endNode;
+
+  while (currentNode !== startNode) {
+    shortestPath.unshift(currentNode);
+    currentNode = previousNodeMap.get(currentNode);
+  }
+
+  shortestPath.unshift(startNode);
+
+  // Return the shortest path and its distance
+  return {
+    path: shortestPath,
+    distance: distanceMap.get(endNode),
+  };
+}
+
+// Example usage:
+const network = new Map();
+network.set("A", [
+  { node: "B", distance: 5 },
+  { node: "C", distance: 3 },
+]);
+network.set("B", [
+  { node: "D", distance: 2 },
+  { node: "E", distance: 4 },
+]);
+network.set("C", [
+  { node: "D", distance: 6 },
+  { node: "E", distance: 2 },
+]);
+network.set("D", [{ node: "F", distance: 1 }]);
+network.set("E", [{ node: "F", distance: 4 }]);
+network.set("F", []);
+
+const startNode = "A";
+const endNode = "F";
+
+const shortestPath = findShortestPath(network, startNode, endNode);
+console.log("Shortest path:", shortestPath.path);
+console.log("Distance:", shortestPath.distance);
+```
