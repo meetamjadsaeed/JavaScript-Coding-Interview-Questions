@@ -3109,3 +3109,50 @@ const shortestPath = findShortestPath(network, startNode, endNode);
 console.log("Shortest path:", shortestPath.path);
 console.log("Distance:", shortestPath.distance);
 ```
+
+### Q104: Write a function to implement the Floyd-Warshall algorithm.
+
+```javascript
+// Function to implement the Floyd-Warshall algorithm
+function floydWarshall(graph) {
+  const numVertices = graph.length;
+  const dist = [];
+
+  // Initialize the distance matrix with the graph
+  for (let i = 0; i < numVertices; i++) {
+    dist[i] = [];
+    for (let j = 0; j < numVertices; j++) {
+      dist[i][j] = graph[i][j];
+    }
+  }
+
+  // Calculate the shortest distances
+  for (let k = 0; k < numVertices; k++) {
+    for (let i = 0; i < numVertices; i++) {
+      for (let j = 0; j < numVertices; j++) {
+        if (
+          dist[i][k] !== Infinity &&
+          dist[k][j] !== Infinity &&
+          dist[i][k] + dist[k][j] < dist[i][j]
+        ) {
+          dist[i][j] = dist[i][k] + dist[k][j];
+        }
+      }
+    }
+  }
+
+  // Return the resulting distance matrix
+  return dist;
+}
+
+// Example usage:
+const graph = [
+  [0, 5, Infinity, 10],
+  [Infinity, 0, 3, Infinity],
+  [Infinity, Infinity, 0, 1],
+  [Infinity, Infinity, Infinity, 0],
+];
+
+const shortestDistances = floydWarshall(graph);
+console.log(shortestDistances);
+```
