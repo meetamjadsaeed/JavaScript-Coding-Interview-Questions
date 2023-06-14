@@ -3156,3 +3156,68 @@ const graph = [
 const shortestDistances = floydWarshall(graph);
 console.log(shortestDistances);
 ```
+
+### Q105: Write a function to implement the Bellman-Ford algorithm.
+
+```javascript
+// Bellman-Ford algorithm implementation
+function bellmanFord(graph, source) {
+  // Step 1: Initialization
+  let distances = {}; // Stores shortest distances from source to each vertex
+  let predecessors = {}; // Stores predecessors of each vertex in the shortest path
+  let vertices = Object.keys(graph);
+
+  // Initialize distances and predecessors
+  vertices.forEach((vertex) => {
+    distances[vertex] = Infinity; // Set initial distance to all vertices as Infinity
+    predecessors[vertex] = null; // Set initial predecessor of all vertices as null
+  });
+
+  distances[source] = 0; // Distance from source to source is 0
+
+  // Step 2: Relax edges repeatedly
+  for (let i = 0; i < vertices.length - 1; i++) {
+    // Iterate |V| - 1 times, where |V| is the number of vertices
+
+    // Iterate over each vertex and its neighbors
+    for (let vertex of vertices) {
+      for (let neighbor in graph[vertex]) {
+        // Relax the edge
+        let weight = graph[vertex][neighbor];
+        if (distances[vertex] + weight < distances[neighbor]) {
+          distances[neighbor] = distances[vertex] + weight;
+          predecessors[neighbor] = vertex;
+        }
+      }
+    }
+  }
+
+  // Step 3: Check for negative-weight cycles
+  for (let vertex of vertices) {
+    for (let neighbor in graph[vertex]) {
+      let weight = graph[vertex][neighbor];
+      if (distances[vertex] + weight < distances[neighbor]) {
+        // Negative-weight cycle found
+        return "Negative-weight cycle detected. Algorithm cannot find shortest paths.";
+      }
+    }
+  }
+
+  // Return the shortest distances and predecessors
+  return { distances, predecessors };
+}
+
+// Example usage:
+const graph = {
+  A: { B: -1, C: 4 },
+  B: { C: 3, D: 2, E: 2 },
+  C: {},
+  D: { B: 1, C: 5 },
+  E: { D: -3 },
+};
+
+const source = "A";
+const result = bellmanFord(graph, source);
+console.log(result.distances); // Output: { A: 0, B: -1, C: 2, D: -2, E: 1 }
+console.log(result.predecessors); // Output: { A: null, B: 'A', C: 'B', D: 'E', E: 'B' }
+```
