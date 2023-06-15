@@ -3221,3 +3221,101 @@ const result = bellmanFord(graph, source);
 console.log(result.distances); // Output: { A: 0, B: -1, C: 2, D: -2, E: 1 }
 console.log(result.predecessors); // Output: { A: null, B: 'A', C: 'B', D: 'E', E: 'B' }
 ```
+
+### Q106: Write a function to implement the Kruskal algorithm.
+
+```javascript
+// Define a class to represent a disjoint set (Union-Find data structure)
+class DisjointSet {
+  constructor(size) {
+    this.parent = new Array(size);
+    this.rank = new Array(size);
+
+    // Initialize each element as a separate set with rank 0
+    for (let i = 0; i < size; i++) {
+      this.parent[i] = i;
+      this.rank[i] = 0;
+    }
+  }
+
+  // Find the representative (root) of the set containing the given element
+  find(x) {
+    // If x is not the representative, recursively find its parent
+    if (this.parent[x] !== x) {
+      this.parent[x] = this.find(this.parent[x]);
+    }
+
+    return this.parent[x];
+  }
+
+  // Merge the sets containing elements x and y
+  union(x, y) {
+    const rootX = this.find(x);
+    const rootY = this.find(y);
+
+    // If both elements are already in the same set, return
+    if (rootX === rootY) {
+      return;
+    }
+
+    // Merge the smaller ranked set into the larger ranked set
+    if (this.rank[rootX] < this.rank[rootY]) {
+      this.parent[rootX] = rootY;
+    } else if (this.rank[rootX] > this.rank[rootY]) {
+      this.parent[rootY] = rootX;
+    } else {
+      // If both sets have the same rank, merge any of them and increment the rank
+      this.parent[rootY] = rootX;
+      this.rank[rootX]++;
+    }
+  }
+}
+
+// Define the Kruskal's algorithm function
+function kruskal(graph) {
+  const vertices = graph.length;
+  const result = [];
+
+  // Step 1: Sort the edges of the graph in non-decreasing order of their weights
+  const edges = [];
+  for (let i = 0; i < vertices; i++) {
+    for (let j = i + 1; j < vertices; j++) {
+      if (graph[i][j] !== 0) {
+        edges.push([i, j, graph[i][j]]);
+      }
+    }
+  }
+  edges.sort((a, b) => a[2] - b[2]);
+
+  // Step 2: Create a disjoint set to keep track of disjoint sets of vertices
+  const disjointSet = new DisjointSet(vertices);
+
+  // Step 3: Process each edge in sorted order
+  for (let i = 0; i < edges.length; i++) {
+    const [src, dest, weight] = edges[i];
+
+    // Check if including the edge creates a cycle in the spanning tree
+    if (disjointSet.find(src) !== disjointSet.find(dest)) {
+      // Include the edge in the spanning tree and merge the sets
+      result.push([src, dest, weight]);
+      disjointSet.union(src, dest);
+    }
+  }
+
+  return result;
+}
+
+// Test the Kruskal's algorithm implementation
+
+// Example graph represented as an adjacency matrix
+const graph = [
+  [0, 2, 0, 6, 0],
+  [2, 0, 3, 8, 5],
+  [0, 3, 0, 0, 7],
+  [6, 8, 0, 0, 9],
+  [0, 5, 7, 9, 0],
+];
+
+const minimumSpanningTree = kruskal(graph);
+console.log(minimumSpanningTree);
+```
