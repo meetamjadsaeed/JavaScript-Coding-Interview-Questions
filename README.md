@@ -3319,3 +3319,73 @@ const graph = [
 const minimumSpanningTree = kruskal(graph);
 console.log(minimumSpanningTree);
 ```
+
+### Q107: Write a function to implement the Prim algorithm.
+
+```javascript
+// Function to implement Prim's algorithm
+function primAlgorithm(graph) {
+  // Create an array to keep track of visited vertices
+  const visited = new Array(graph.length).fill(false);
+
+  // Create an array to store the minimum weights of edges
+  const minWeights = new Array(graph.length).fill(Infinity);
+
+  // Create an array to store the parent of each vertex
+  const parents = new Array(graph.length).fill(null);
+
+  // Start with the first vertex as the initial vertex
+  minWeights[0] = 0;
+
+  // Loop through all vertices
+  for (let i = 0; i < graph.length; i++) {
+    // Find the vertex with the minimum weight
+    let minWeightVertex = -1;
+    for (let j = 0; j < graph.length; j++) {
+      if (
+        !visited[j] &&
+        (minWeightVertex === -1 || minWeights[j] < minWeights[minWeightVertex])
+      ) {
+        minWeightVertex = j;
+      }
+    }
+
+    // Mark the minimum weight vertex as visited
+    visited[minWeightVertex] = true;
+
+    // Update the minimum weights and parents of adjacent vertices
+    for (let j = 0; j < graph.length; j++) {
+      if (
+        graph[minWeightVertex][j] !== 0 &&
+        !visited[j] &&
+        graph[minWeightVertex][j] < minWeights[j]
+      ) {
+        minWeights[j] = graph[minWeightVertex][j];
+        parents[j] = minWeightVertex;
+      }
+    }
+  }
+
+  // Create an array to store the minimum spanning tree
+  const minimumSpanningTree = [];
+
+  // Build the minimum spanning tree using the parents array
+  for (let i = 1; i < graph.length; i++) {
+    minimumSpanningTree.push([parents[i], i]);
+  }
+
+  return minimumSpanningTree;
+}
+
+// Example usage:
+const graph = [
+  [0, 2, 0, 6, 0],
+  [2, 0, 3, 8, 5],
+  [0, 3, 0, 0, 7],
+  [6, 8, 0, 0, 9],
+  [0, 5, 7, 9, 0],
+];
+
+const minimumSpanningTree = primAlgorithm(graph);
+console.log(minimumSpanningTree);
+```
