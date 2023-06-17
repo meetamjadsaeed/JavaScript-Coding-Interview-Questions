@@ -3389,3 +3389,39 @@ const graph = [
 const minimumSpanningTree = primAlgorithm(graph);
 console.log(minimumSpanningTree);
 ```
+
+### Q108: Write a function to implement the Depth-First Search algorithm..
+
+```javascript
+// Function to implement Depth-First Search (DFS) algorithm
+function depthFirstSearch(graph, startNode) {
+  const visited = new Set(); // Keep track of visited nodes
+
+  // Recursive DFS helper function
+  function dfsHelper(node) {
+    visited.add(node); // Mark the current node as visited
+    console.log("Visited node:", node); // Perform desired operation (in this case, printing the visited node)
+
+    // Visit all the adjacent nodes of the current node
+    for (const neighbor of graph[node]) {
+      if (!visited.has(neighbor)) {
+        dfsHelper(neighbor); // Recursively call DFS on the unvisited neighbor
+      }
+    }
+  }
+
+  dfsHelper(startNode); // Start DFS from the specified start node
+}
+
+// Example usage
+const graph = {
+  A: ["B", "C"],
+  B: ["A", "D", "E"],
+  C: ["A", "F"],
+  D: ["B"],
+  E: ["B", "F"],
+  F: ["C", "E"],
+};
+
+depthFirstSearch(graph, "A");
+```
