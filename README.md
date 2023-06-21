@@ -2654,3 +2654,16 @@ The callback of setTimeout moved from Browser API to message queue.
 The main function popped out from stack because there are no statements to execute
 The callback moved from message queue to the stack since the stack is empty.
 The console.log for B is added to the stack and display on the console.
+
+### Q101: What is the output of below equality check.
+
+```javascript
+console.log(0.1 + 0.2 === 0.3);
+```
+
+- 1: false
+- 2: true
+
+#### Answer: 1
+
+This is due to the float point math problem. Since the floating point numbers are encoded in binary format, the addition operations on them lead to rounding errors. Hence, the comparison of floating points doesn't give expected results. You can find more details about the explanation here 0.30000000000000004.com/
