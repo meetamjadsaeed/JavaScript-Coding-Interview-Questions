@@ -2683,6 +2683,20 @@ console.log(y);
 - 3: ReferenceError
 - 4: 1undefined
 
-#### Answer: 1
+#### Answer: 4
 
-This is due to the float point math problem. Since the floating point numbers are encoded in binary format, the addition operations on them lead to rounding errors. Hence, the comparison of floating points doesn't give expected results. You can find more details about the explanation here 0.30000000000000004.com/
+The main points in the above code snippets are,
+
+You can see function expression instead function declaration inside if statement. So it always returns true.
+Since it is not declared(or assigned) anywhere, f is undefined and typeof f is undefined too.
+In other words, it is same as
+
+```javascript
+var y = 1;
+if ("foo") {
+  y += typeof f;
+}
+console.log(y);
+```
+
+Note: It returns 1object for MS Edge browser
