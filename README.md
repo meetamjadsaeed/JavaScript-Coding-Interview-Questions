@@ -2667,3 +2667,22 @@ console.log(0.1 + 0.2 === 0.3);
 #### Answer: 1
 
 This is due to the float point math problem. Since the floating point numbers are encoded in binary format, the addition operations on them lead to rounding errors. Hence, the comparison of floating points doesn't give expected results. You can find more details about the explanation here 0.30000000000000004.com/
+
+### Q102: What is the output of below code.
+
+```javascript
+var y = 1;
+if (function f() {}) {
+  y += typeof f;
+}
+console.log(y);
+```
+
+- 1: 1function
+- 2: 1object
+- 3: ReferenceError
+- 4: 1undefined
+
+#### Answer: 1
+
+This is due to the float point math problem. Since the floating point numbers are encoded in binary format, the addition operations on them lead to rounding errors. Hence, the comparison of floating points doesn't give expected results. You can find more details about the explanation here 0.30000000000000004.com/
