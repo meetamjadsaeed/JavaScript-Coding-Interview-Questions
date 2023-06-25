@@ -2753,3 +2753,26 @@ console.log(myChars.length);
 #### Answer: 3
 
 The delete operator will delete the object property but it will not reindex the array or change its length. So the number or elements or length of the array won't be changed. If you try to print myChars then you can observe that it doesn't set an undefined value, rather the property is removed from the array. The newer versions of Chrome use empty instead of undefined to make the difference a bit clearer.
+
+### Q105: What is the output of below code.
+
+```javascript
+var array1 = new Array(3);
+console.log(array1);
+
+var array2 = [];
+array2[2] = 100;
+console.log(array2);
+
+var array3 = [, , ,];
+console.log(array3);
+```
+
+- 1: [undefined × 3], [undefined × 2, 100], [undefined × 3]
+- 2: [empty × 3], [empty × 2, 100], [empty × 3]
+- 3: [null × 3], [null × 2, 100], [null × 3]
+- 4: [], [100], []
+
+#### Answer: 2
+
+The latest chrome versions display sparse array(they are filled with holes) using this empty x n notation. Whereas the older versions have undefined x n notation. Note: The latest version of FF displays n empty slots notation.
