@@ -2776,3 +2776,32 @@ console.log(array3);
 #### Answer: 2
 
 The latest chrome versions display sparse array(they are filled with holes) using this empty x n notation. Whereas the older versions have undefined x n notation. Note: The latest version of FF displays n empty slots notation.
+
+### Q106: What is the output of below code.
+
+```javascript
+const obj = {
+  prop1: function () {
+    return 0;
+  },
+  prop2() {
+    return 1;
+  },
+  ["prop" + 3]() {
+    return 2;
+  },
+};
+
+console.log(obj.prop1());
+console.log(obj.prop2());
+console.log(obj.prop3());
+```
+
+- 1: 0, 1, 2
+- 2: 0, { return 1 }, 2
+- 3: 0, { return 1 }, { return 2 }
+- 4: 0, 1, undefined
+
+#### Answer: 1
+
+ES6 provides method definitions and property shorthands for objects. So both prop2 and prop3 are treated as regular function values.
