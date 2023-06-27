@@ -2805,3 +2805,30 @@ console.log(obj.prop3());
 #### Answer: 1
 
 ES6 provides method definitions and property shorthands for objects. So both prop2 and prop3 are treated as regular function values.
+
+### Q107: What is the output of below code.
+
+```javascript
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+```
+
+- 1: true, true
+- 2: true, false
+- 3: SyntaxError, SyntaxError,
+- 4: false, false
+
+#### Answer: 2
+
+The important point is that if the statement contains the same operators(e.g, < or >) then it can be evaluated from left to right. The first statement follows the below order,
+
+console.log(1 < 2 < 3);
+console.log(true < 3);
+console.log(1 < 3); // True converted as 1 during comparison
+True
+Whereas the second statement follows the below order,
+
+console.log(3 > 2 > 1);
+console.log(true > 1);
+console.log(1 > 1); // False converted as 0 during comparison
+False
