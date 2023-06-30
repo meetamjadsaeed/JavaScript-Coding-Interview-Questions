@@ -2870,3 +2870,35 @@ printNumbersArrow(1, 2, 3);
 #### Answer: 3
 
 Unlike regular functions, the arrow functions doesn't not allow duplicate parameters in either strict or non-strict mode. So you can see SyntaxError in the console.
+
+### Q110: What is the output of below code.
+
+```javascript
+const arrowFunc = () => arguments.length;
+console.log(arrowFunc(1, 2, 3));
+```
+
+- 1: ReferenceError: arguments is not defined
+- 2: 3
+- 3: undefined
+- 4: null
+
+#### Answer: 1
+
+Arrow functions do not have an arguments, super, this, or new.target bindings. So any reference to arguments variable tries to resolve to a binding in a lexically enclosing environment. In this case, the arguments variable is not defined outside of the arrow function. Hence, you will receive a reference error.
+
+Where as the normal function provides the number of arguments passed to the function
+
+```javascript
+const func = function () {
+  return arguments.length;
+};
+console.log(func(1, 2, 3));
+```
+
+But If you still want to use an arrow function then rest operator on arguments provides the expected arguments
+
+```javascript
+const arrowFunc = (...args) => args.length;
+console.log(arrowFunc(1, 2, 3));
+```
