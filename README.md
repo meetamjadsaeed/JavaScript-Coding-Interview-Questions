@@ -2916,3 +2916,18 @@ console.log(String.prototype.trimLeft.name === "trimStart");
 #### Answer: 2
 
 In order to be consistent with functions like String.prototype.padStart, the standard method name for trimming the whitespaces is considered as trimStart. Due to web web compatibility reasons, the old method name 'trimLeft' still acts as an alias for 'trimStart'. Hence, the prototype for 'trimLeft' is always 'trimStart'
+
+### Q112: What is the output of below code.
+
+```javascript
+console.log(Math.max());
+```
+
+- 1: undefined
+- 2: Infinity
+- 3: 0
+- 4: -Infinity
+
+#### Answer: 4
+
+-Infinity is the initial comparant because almost every other value is bigger. So when no arguments are provided, -Infinity is going to be returned. Note: Zero number of arguments is a valid case.
