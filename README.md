@@ -2931,3 +2931,25 @@ console.log(Math.max());
 #### Answer: 4
 
 -Infinity is the initial comparant because almost every other value is bigger. So when no arguments are provided, -Infinity is going to be returned. Note: Zero number of arguments is a valid case.
+
+### Q113: What is the output of below code.
+
+```javascript
+console.log(10 == [10]);
+console.log(10 == [[[[[[[10]]]]]]]);
+```
+
+- 1: True, True
+- 2: True, False
+- 3: False, False
+- 4: False, True
+
+#### Answer: 1
+
+As per the comparison algorithm in the ECMAScript specification(ECMA-262), the above expression converted into JS as below
+
+```javascript
+10 === Number([10].valueOf().toString()); // 10
+```
+
+So it doesn't matter about number brackets([]) around the number, it is always converted to a number in the expression.
