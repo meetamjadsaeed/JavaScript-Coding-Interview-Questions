@@ -2953,3 +2953,19 @@ As per the comparison algorithm in the ECMAScript specification(ECMA-262), the a
 ```
 
 So it doesn't matter about number brackets([]) around the number, it is always converted to a number in the expression.
+
+### Q114: What is the output of below code.
+
+```javascript
+console.log(10 + "10");
+console.log(10 - "10");
+```
+
+- 1: 20, 0
+- 2: 1010, 0
+- 3: 1010, 10-10
+- 4: NaN, NaN
+
+#### Answer: 2
+
+The concatenation operator(+) is applicable for both number and string types. So if any operand is string type then both operands concatenated as strings. Whereas subtract(-) operator tries to convert the operands as number type.
