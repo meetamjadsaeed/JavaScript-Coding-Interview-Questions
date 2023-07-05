@@ -2969,3 +2969,23 @@ console.log(10 - "10");
 #### Answer: 2
 
 The concatenation operator(+) is applicable for both number and string types. So if any operand is string type then both operands concatenated as strings. Whereas subtract(-) operator tries to convert the operands as number type.
+
+### Q115: What is the output of below code.
+
+```javascript
+console.log([0] == false);
+if ([0]) {
+  console.log("I'm True");
+} else {
+  console.log("I'm False");
+}
+```
+
+- 1: True, I'm True
+- 2: True, I'm False
+- 3: False, I'm True
+- 4: False, I'm False
+
+#### Answer: 1
+
+In comparison operators, the expression [0] converted to Number([0].valueOf().toString()) which is resolved to false. Whereas [0] just becomes a truthy value without any conversion because there is no comparison operator.
