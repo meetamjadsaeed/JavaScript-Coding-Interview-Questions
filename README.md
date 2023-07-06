@@ -2989,3 +2989,18 @@ if ([0]) {
 #### Answer: 1
 
 In comparison operators, the expression [0] converted to Number([0].valueOf().toString()) which is resolved to false. Whereas [0] just becomes a truthy value without any conversion because there is no comparison operator.
+
+### Q116: What is the output of below code.
+
+```javascript
+console.log([1, 2] + [3, 4]);
+```
+
+- 1: [1,2,3,4]
+- 2: [1,2][3,4]
+- 3: SyntaxError
+- 4: 1,23,4
+
+#### Answer: 4
+
+The + operator is not meant or defined for arrays. So it converts arrays into strings and concatenates them.
