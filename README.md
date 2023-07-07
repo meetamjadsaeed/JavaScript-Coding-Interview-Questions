@@ -3004,3 +3004,22 @@ console.log([1, 2] + [3, 4]);
 #### Answer: 4
 
 The + operator is not meant or defined for arrays. So it converts arrays into strings and concatenates them.
+
+### Q117: What is the output of below code.
+
+```javascript
+const numbers = new Set([1, 1, 2, 3, 4]);
+console.log(numbers);
+
+const browser = new Set("Firefox");
+console.log(browser);
+```
+
+- 1: {1, 2, 3, 4}, {"F", "i", "r", "e", "f", "o", "x"}
+- 2: {1, 2, 3, 4}, {"F", "i", "r", "e", "o", "x"}
+- 3: [1, 2, 3, 4], ["F", "i", "r", "e", "o", "x"]
+- 4: {1, 1, 2, 3, 4}, {"F", "i", "r", "e", "f", "o", "x"}
+
+#### Answer: 1
+
+Since Set object is a collection of unique values, it won't allow duplicate values in the collection. At the same time, it is case sensitive data structure.
