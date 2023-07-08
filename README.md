@@ -3023,3 +3023,21 @@ console.log(browser);
 #### Answer: 1
 
 Since Set object is a collection of unique values, it won't allow duplicate values in the collection. At the same time, it is case sensitive data structure.
+
+### Q118: What is the output of below code.
+
+```javascript
+console.log(NaN === NaN);
+```
+
+- 1: True
+- 2: False
+
+<details>
+  <summary>#### Answer</summary>
+  
+#### Answer: 2
+
+JavaScript follows IEEE 754 spec standards. As per this spec, NaNs are never equal for floating-point numbers.
+
+</details>
