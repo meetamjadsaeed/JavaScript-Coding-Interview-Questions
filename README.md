@@ -2818,6 +2818,9 @@ console.log(3 > 2 > 1);
 - 3: SyntaxError, SyntaxError,
 - 4: false, false
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 2
 
 The important point is that if the statement contains the same operators(e.g, < or >) then it can be evaluated from left to right. The first statement follows the below order,
@@ -2833,6 +2836,8 @@ console.log(true > 1);
 console.log(1 > 1); // False converted as 0 during comparison
 False
 
+</details>
+
 ### Q108: What is the output of below code in non-strict mode.
 
 ```javascript
@@ -2847,11 +2852,16 @@ printNumbers(1, 2, 3);
 - 3: SyntaxError: Duplicate parameter name not allowed in this context
 - 4: 1, 2, 1
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 2
 
 In non-strict mode, the regular JavaScript functions allow duplicate named parameters. The above code snippet has duplicate parameters on 1st and 3rd parameters. The value of the first parameter is mapped to the third argument which is passed to the function. Hence, the 3rd argument overrides the first parameter.
 
 Note: In strict mode, duplicate parameters will throw a Syntax Error.
+
+</details>
 
 ### Q109: What is the output of below code.
 
@@ -2867,9 +2877,13 @@ printNumbersArrow(1, 2, 3);
 - 3: SyntaxError: Duplicate parameter name not allowed in this context
 - 4: 1, 2, 1
 
+<details>
+  <summary>Answer</summary>
 #### Answer: 3
 
 Unlike regular functions, the arrow functions doesn't not allow duplicate parameters in either strict or non-strict mode. So you can see SyntaxError in the console.
+
+</details>
 
 ### Q110: What is the output of below code.
 
@@ -2882,6 +2896,9 @@ console.log(arrowFunc(1, 2, 3));
 - 2: 3
 - 3: undefined
 - 4: null
+
+<details>
+  <summary>Answer</summary>
 
 #### Answer: 1
 
@@ -2903,6 +2920,8 @@ const arrowFunc = (...args) => args.length;
 console.log(arrowFunc(1, 2, 3));
 ```
 
+</details>
+
 ### Q111: What is the output of below code.
 
 ```javascript
@@ -2913,9 +2932,14 @@ console.log(String.prototype.trimLeft.name === "trimStart");
 - 1: True, False
 - 2: False, True
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 2
 
 In order to be consistent with functions like String.prototype.padStart, the standard method name for trimming the whitespaces is considered as trimStart. Due to web web compatibility reasons, the old method name 'trimLeft' still acts as an alias for 'trimStart'. Hence, the prototype for 'trimLeft' is always 'trimStart'
+
+</details>
 
 ### Q112: What is the output of below code.
 
@@ -2928,9 +2952,14 @@ console.log(Math.max());
 - 3: 0
 - 4: -Infinity
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 4
 
 -Infinity is the initial comparant because almost every other value is bigger. So when no arguments are provided, -Infinity is going to be returned. Note: Zero number of arguments is a valid case.
+
+</details>
 
 ### Q113: What is the output of below code.
 
@@ -2944,6 +2973,9 @@ console.log(10 == [[[[[[[10]]]]]]]);
 - 3: False, False
 - 4: False, True
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 1
 
 As per the comparison algorithm in the ECMAScript specification(ECMA-262), the above expression converted into JS as below
@@ -2953,6 +2985,8 @@ As per the comparison algorithm in the ECMAScript specification(ECMA-262), the a
 ```
 
 So it doesn't matter about number brackets([]) around the number, it is always converted to a number in the expression.
+
+</details>
 
 ### Q114: What is the output of below code.
 
@@ -2966,9 +3000,14 @@ console.log(10 - "10");
 - 3: 1010, 10-10
 - 4: NaN, NaN
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 2
 
 The concatenation operator(+) is applicable for both number and string types. So if any operand is string type then both operands concatenated as strings. Whereas subtract(-) operator tries to convert the operands as number type.
+
+</details>
 
 ### Q115: What is the output of below code.
 
@@ -2986,9 +3025,14 @@ if ([0]) {
 - 3: False, I'm True
 - 4: False, I'm False
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 1
 
 In comparison operators, the expression [0] converted to Number([0].valueOf().toString()) which is resolved to false. Whereas [0] just becomes a truthy value without any conversion because there is no comparison operator.
+
+</details>
 
 ### Q116: What is the output of below code.
 
@@ -3001,9 +3045,14 @@ console.log([1, 2] + [3, 4]);
 - 3: SyntaxError
 - 4: 1,23,4
 
+<details>
+  <summary>Answer</summary>
+  
 #### Answer: 4
 
 The + operator is not meant or defined for arrays. So it converts arrays into strings and concatenates them.
+
+</details>
 
 ### Q117: What is the output of below code.
 
@@ -3020,9 +3069,14 @@ console.log(browser);
 - 3: [1, 2, 3, 4], ["F", "i", "r", "e", "o", "x"]
 - 4: {1, 1, 2, 3, 4}, {"F", "i", "r", "e", "f", "o", "x"}
 
+<details>
+  <summary>Answer</summary>
+  
 #### Answer: 1
 
 Since Set object is a collection of unique values, it won't allow duplicate values in the collection. At the same time, it is case sensitive data structure.
+
+</details>
 
 ### Q118: What is the output of below code.
 
@@ -3034,7 +3088,7 @@ console.log(NaN === NaN);
 - 2: False
 
 <details>
-  <summary>#### Answer</summary>
+  <summary>Answer</summary>
   
 #### Answer: 2
 
