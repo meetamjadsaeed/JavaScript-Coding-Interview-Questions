@@ -2718,6 +2718,9 @@ console.log(foo());
 - 3: Undefined
 - 4: SyntaxError
 
+<details>
+  <summary>Answer</summary>
+  
 #### Answer: 3
 
 The main points in the above code snippets are,
@@ -2735,6 +2738,8 @@ function foo() {
 console.log(foo()); // {message: "Hello World"}
 ```
 
+</details>
+
 ### Q104: What is the output of below code.
 
 ```javascript
@@ -2750,9 +2755,14 @@ console.log(myChars.length);
 - 3: [empty, 'b', 'c', 'd'], undefined, 4
 - 4: [null, 'b', 'c', 'd'], undefined, 4
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 3
 
 The delete operator will delete the object property but it will not reindex the array or change its length. So the number or elements or length of the array won't be changed. If you try to print myChars then you can observe that it doesn't set an undefined value, rather the property is removed from the array. The newer versions of Chrome use empty instead of undefined to make the difference a bit clearer.
+
+</details>
 
 ### Q105: What is the output of below code.
 
@@ -2773,9 +2783,14 @@ console.log(array3);
 - 3: [null × 3], [null × 2, 100], [null × 3]
 - 4: [], [100], []
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 2
 
 The latest chrome versions display sparse array(they are filled with holes) using this empty x n notation. Whereas the older versions have undefined x n notation. Note: The latest version of FF displays n empty slots notation.
+
+</details>
 
 ### Q106: What is the output of below code.
 
@@ -2802,9 +2817,13 @@ console.log(obj.prop3());
 - 3: 0, { return 1 }, { return 2 }
 - 4: 0, 1, undefined
 
+<details>
+  <summary>Answer</summary>
 #### Answer: 1
 
 ES6 provides method definitions and property shorthands for objects. So both prop2 and prop3 are treated as regular function values.
+
+</details>
 
 ### Q107: What is the output of below code.
 
