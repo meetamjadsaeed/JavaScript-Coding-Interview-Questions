@@ -2683,6 +2683,9 @@ console.log(y);
 - 3: ReferenceError
 - 4: 1undefined
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 4
 
 The main points in the above code snippets are,
@@ -2700,6 +2703,8 @@ console.log(y);
 ```
 
 Note: It returns 1object for MS Edge browser
+
+</details>
 
 ### Q103: What is the output of below code.
 
