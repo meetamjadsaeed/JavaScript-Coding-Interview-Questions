@@ -2642,6 +2642,9 @@ main();
 - 3: A and C
 - 4: A, C and B
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 4
 
 The statements order is based on the event loop mechanism. The order of statements follows the below order,
@@ -2654,6 +2657,8 @@ The callback of setTimeout moved from Browser API to message queue.
 The main function popped out from stack because there are no statements to execute
 The callback moved from message queue to the stack since the stack is empty.
 The console.log for B is added to the stack and display on the console.
+
+</details>
 
 ### Q101: What is the output of below equality check.
 
