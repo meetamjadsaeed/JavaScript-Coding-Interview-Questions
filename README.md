@@ -2615,6 +2615,9 @@ console.log(foo(), typeof x, typeof y);
 - 3: 1, undefined and number
 - 4: 1, number and number
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 3
 
 Of course the return value of foo() is 1 due to the increment operator. But the statement let x = y = 0 declares a local variable x. Whereas y declared as a global variable accidentally. This statement is equivalent to,
@@ -2623,6 +2626,8 @@ let x;
 window.y = 0;
 x = window.y;
 Since the block scoped variable x is undefined outside of the function, the type will be undefined too. Whereas the global variable y is available outside the function, the value is 0 and type is number.
+
+</details>
 
 ### Q100: What is the output of below code.
 
