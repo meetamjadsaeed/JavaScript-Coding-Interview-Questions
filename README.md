@@ -2140,7 +2140,7 @@ const result = isAnagram(string1, string2);
 console.log(result); // Output: true
 ```
 
-### Q98: WWhat is the output of below code.
+### Q98: What is the output of below code.
 
 ```javascript
 var car = new Vehicle("Honda", "white", "2010", "UK");
@@ -2703,5 +2703,33 @@ console.log(NaN === NaN);
 #### Answer: 2
 
 JavaScript follows IEEE 754 spec standards. As per this spec, NaNs are never equal for floating-point numbers.
+
+</details>
+
+#### Q119: What is the output of below code.
+
+```javascript
+let numbers = [1, 2, 3, 4, NaN];
+console.log(numbers.indexOf(NaN));
+```
+
+- 1: 4
+- 2: NaN
+- 3: SyntaxError
+- 4: -1
+
+<details>
+  <summary>Answer</summary>
+  
+#### Answer: 4
+
+The indexOf uses strict equality operator(===) internally and NaN === NaN evaluates to false. Since indexOf won't be able to find NaN inside an array, it returns -1 always. But you can use Array.prototype.findIndex method to find out the index of NaN in an array or You can use Array.prototype.includes to check if NaN is present in an array or not.
+
+```javascript
+let numbers = [1, 2, 3, 4, NaN];
+console.log(numbers.findIndex(Number.isNaN)); // 4
+
+console.log(numbers.includes(NaN)); // true
+```
 
 </details>
