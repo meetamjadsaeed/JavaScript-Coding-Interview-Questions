@@ -2140,7 +2140,7 @@ const result = isAnagram(string1, string2);
 console.log(result); // Output: true
 ```
 
-### Q98: What is the output of below code.
+### Q98: WWhat is the output of below code.
 
 ```javascript
 var car = new Vehicle("Honda", "white", "2010", "UK");
@@ -2159,9 +2159,14 @@ function Vehicle(model, color, year, country) {
 - 3: null
 - 4: {model: "Honda", color: "white", year: "2010", country: "UK"}
 
+<details>
+  <summary>Answer</summary>
+
 #### Answer: 4
 
 The function declarations are hoisted similar to any variables. So the placement for Vehicle function declaration doesn't make any difference.
+
+</details>
 
 ### Q99: What is the output of below code.
 
