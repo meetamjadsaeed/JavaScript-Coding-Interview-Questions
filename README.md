@@ -2733,3 +2733,29 @@ console.log(numbers.includes(NaN)); // true
 ```
 
 </details>
+
+#### Q120: What is the output of below code.
+
+```javascript
+let [a, ...b] = [1, 2, 3, 4, 5];
+console.log(a, b);
+```
+
+- 1: 1, [2, 3, 4, 5]
+- 2: 1, {2, 3, 4, 5}
+- 3: SyntaxError
+- 4: 1, [2, 3, 4]
+
+<details>
+  <summary>Answer</summary>
+  
+#### Answer: 3
+
+When using rest parameters, trailing commas are not allowed and will throw a SyntaxError. If you remove the trailing comma then it displays 1st answer
+
+```javascript
+let [a, ...b] = [1, 2, 3, 4, 5];
+console.log(a, b); // 1, [2, 3, 4, 5]
+```
+
+</details>
