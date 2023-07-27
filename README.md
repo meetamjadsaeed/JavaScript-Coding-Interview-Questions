@@ -2921,3 +2921,28 @@ async function processArray(array) {
 ```
 
 </details>
+
+#### Q126: What is the output of below code.
+
+```javascript
+var set = new Set();
+set.add("+0").add("-0").add(NaN).add(undefined).add(NaN);
+console.log(set);
+```
+
+- 1: Set(4) {"+0", "-0", NaN, undefined}
+- 2: Set(3) {"+0", NaN, undefined}
+- 3: Set(5) {"+0", "-0", NaN, undefined, NaN}
+- 4: Set(4) {"+0", NaN, undefined, NaN}
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 1
+
+Set has few exceptions from equality check,
+
+All NaN values are equal
+Both +0 and -0 considered as different values
+
+</details>
