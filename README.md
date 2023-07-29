@@ -2976,3 +2976,24 @@ Symbol.for() function creates a symbol in a global symbol registry list. But it 
 Note: The symbol description is just useful for debugging purposes.
 
 </details>
+
+#### Q128: What is the output of below code.
+
+```javascript
+const sym1 = new Symbol("one");
+console.log(sym1);
+```
+
+- 1: SyntaxError
+- 2: one
+- 3: Symbol('one')
+- 4: Symbol
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 1
+
+Symbol is a just a standard function and not an object constructor(unlike other primitives new Boolean, new String and new Number). So if you try to call it with the new operator will result in a TypeError
+
+</details>
