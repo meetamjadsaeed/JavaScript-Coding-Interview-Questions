@@ -2997,3 +2997,44 @@ console.log(sym1);
 Symbol is a just a standard function and not an object constructor(unlike other primitives new Boolean, new String and new Number). So if you try to call it with the new operator will result in a TypeError
 
 </details>
+
+#### Q129: What is the output of below code.
+
+```javascript
+let myNumber = 100;
+let myString = "100";
+
+if (!typeof myNumber === "string") {
+  console.log("It is not a string!");
+} else {
+  console.log("It is a string!");
+}
+
+if (!typeof myString === "number") {
+  console.log("It is not a number!");
+} else {
+  console.log("It is a number!");
+}
+```
+
+- 1: SyntaxError
+- 2: It is not a string!, It is not a number!
+- 3: It is not a string!, It is a number!
+- 4: It is a string!, It is a number!
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 4
+
+The return value of typeof myNumber or typeof myString is always a truthy value (either "number" or "string"). The ! operator operates on either typeof myNumber or typeof myString, converting them to boolean values. Since the value of both !typeof myNumber and !typeof myString is false, the if condition fails, and control goes to else block.
+
+To make the ! operator operate on the equality expression, one needs to add parentheses:
+
+if (!(typeof myNumber === "string"))
+
+Or simply use the inequality operator:
+
+if (typeof myNumber !== "string")
+
+</details>
