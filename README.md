@@ -3038,3 +3038,31 @@ Or simply use the inequality operator:
 if (typeof myNumber !== "string")
 
 </details>
+
+#### Q130: What is the output of below code.
+
+```javascript
+console.log(
+  JSON.stringify({ myArray: ["one", undefined, function () {}, Symbol("")] })
+);
+console.log(
+  JSON.stringify({ [Symbol.for("one")]: "one" }, [Symbol.for("one")])
+);
+```
+
+- 1: {"myArray":['one', undefined, {}, Symbol]}, {}
+- 2: {"myArray":['one', null,null,null]}, {}
+- 3: {"myArray":['one', null,null,null]}, "{ [Symbol.for('one')]: 'one' }, [Symbol.for('one')]"
+- 4: {"myArray":['one', undefined, function(){}, Symbol('')]}, {}
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 2
+
+The symbols has below constraints,
+
+The undefined, Functions, and Symbols are not valid JSON values. So those values are either omitted (in an object) or changed to null (in an array). Hence, it returns null values for the value array.
+All Symbol-keyed properties will be completely ignored. Hence it returns an empty object({}).
+
+</details>
