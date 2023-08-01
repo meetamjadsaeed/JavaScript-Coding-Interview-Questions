@@ -3066,3 +3066,34 @@ The undefined, Functions, and Symbols are not valid JSON values. So those values
 All Symbol-keyed properties will be completely ignored. Hence it returns an empty object({}).
 
 </details>
+
+#### Q131: What is the output of below code.
+
+```javascript
+class A {
+  constructor() {
+    console.log(new.target.name);
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+  }
+}
+
+new A();
+new B();
+```
+
+- 1: A, A
+- 2: A, B
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 2
+
+Using constructors, new.target refers to the constructor (points to the class definition of class which is initialized) that was directly invoked by new. This also applies to the case if the constructor is in a parent class and was delegated from a child constructor.
+
+</details>
