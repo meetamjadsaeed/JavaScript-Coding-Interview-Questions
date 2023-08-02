@@ -3063,7 +3063,13 @@ console.log(
 The symbols has below constraints,
 
 The undefined, Functions, and Symbols are not valid JSON values. So those values are either omitted (in an object) or changed to null (in an array). Hence, it returns null values for the value array.
-All Symbol-keyed properties will be completely ignored. Hence it returns an empty object({}).
+All Symbol-keyed properties will be completely ignored. Hence it returns an empty
+
+```javascript
+object({});
+```
+
+.
 
 </details>
 
