@@ -3103,3 +3103,24 @@ new B();
 Using constructors, new.target refers to the constructor (points to the class definition of class which is initialized) that was directly invoked by new. This also applies to the case if the constructor is in a parent class and was delegated from a child constructor.
 
 </details>
+
+#### Q133: What is the output of below code.
+
+```javascript
+const [x, ...y, z] = [1, 2, 3, 4];
+console.log(x, y, z);
+```
+
+- 1: 1, [2, 3], 4
+- 2: 1, [2, 3, 4], undefined
+- 3: 1, [2], 3
+- 4: SyntaxError
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 4
+
+It throws a syntax error because the rest element should not have a trailing comma. You should always consider using a rest operator as the last element.
+
+</details>
