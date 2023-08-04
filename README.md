@@ -3119,7 +3119,7 @@ console.log(x, y, z);
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 4
+#### Correct Answer is: 4
 
 It throws a syntax error because the rest element should not have a trailing comma. You should always consider using a rest operator as the last element.
 
