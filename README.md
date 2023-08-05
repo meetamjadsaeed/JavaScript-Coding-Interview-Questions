@@ -3098,7 +3098,7 @@ new B();
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 2
+#### Correct Answer is: 2
 
 Using constructors, new.target refers to the constructor (points to the class definition of class which is initialized) that was directly invoked by new. This also applies to the case if the constructor is in a parent class and was delegated from a child constructor.
 
