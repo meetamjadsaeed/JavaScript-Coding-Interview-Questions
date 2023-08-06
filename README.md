@@ -3058,7 +3058,7 @@ console.log(
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 2
+#### Correct Answer is: 2
 
 The symbols has below constraints,
 
