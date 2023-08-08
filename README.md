@@ -3025,7 +3025,7 @@ if (!typeof myString === "number") {
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 4
+#### Correct Answer is: 4
 
 The return value of typeof myNumber or typeof myString is always a truthy value (either "number" or "string"). The ! operator operates on either typeof myNumber or typeof myString, converting them to boolean values. Since the value of both !typeof myNumber and !typeof myString is false, the if condition fails, and control goes to else block.
 
