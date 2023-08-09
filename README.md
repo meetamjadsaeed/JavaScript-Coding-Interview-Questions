@@ -3124,3 +3124,30 @@ console.log(x, y, z);
 It throws a syntax error because the rest element should not have a trailing comma. You should always consider using a rest operator as the last element.
 
 </details>
+
+
+#### Q134: What is the output of below code.
+
+```javascript
+const { a: x = 10, b: y = 20 } = { a: 30 };
+
+console.log(x);
+console.log(y);
+```
+
+- 1: 30, 20
+- 2: 10, 20
+- 3: 10, undefined
+- 4: 30, undefined
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer is: 1
+
+The object property follows below rules,
+
+The object properties can be retrieved and assigned to a variable with a different name
+The property assigned a default value when the retrieved value is undefined
+
+</details>
