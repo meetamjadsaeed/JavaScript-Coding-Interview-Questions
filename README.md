@@ -2967,7 +2967,7 @@ console.log(sym1 === sym2, sym3 === sym4);
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 3
+#### Correct Answer is: 3
 
 Symbol follows below conventions,
 
@@ -3124,7 +3124,6 @@ console.log(x, y, z);
 It throws a syntax error because the rest element should not have a trailing comma. You should always consider using a rest operator as the last element.
 
 </details>
-
 
 #### Q134: What is the output of below code.
 
