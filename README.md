@@ -2734,7 +2734,7 @@ console.log(numbers.includes(NaN)); // true
 
 </details>
 
-#### Q120: What is the output of below code.
+#### Q121: What is the output of below code.
 
 ```javascript
 let [a, ...b] = [1, 2, 3, 4, 5];
