@@ -3150,3 +3150,49 @@ The object properties can be retrieved and assigned to a variable with a differe
 The property assigned a default value when the retrieved value is undefined
 
 </details>
+
+#### Q135: What is the output of below code.
+
+```javascript
+function area({ length = 10, width = 20 }) {
+  console.log(length * width);
+}
+
+area();
+```
+
+- 1: 200
+- 2: Error
+- 3: undefined
+- 4: 0
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer is: 2
+
+If you leave out the right-hand side assignment for the destructuring object, the function will look for at least one argument to be supplied when invoked. Otherwise you will receive an error Error: Cannot read property 'length' of undefined as mentioned above.
+
+You can avoid the error with either of the below changes,
+
+Pass at least an empty object:
+
+```javascript
+function area({ length = 10, width = 20 }) {
+  console.log(length * width);
+}
+
+area({});
+```
+
+Assign default empty object:
+
+```javascript
+function area({ length = 10, width = 20 } = {}) {
+  console.log(length * width);
+}
+
+area();
+```
+
+</details>
