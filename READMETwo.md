@@ -1,4 +1,4 @@
-# JavaScript Coding Interview Questions
+# JavaScript Coding Interview Questions ( Part 2 )
 
 ## Description
 
