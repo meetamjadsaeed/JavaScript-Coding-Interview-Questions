@@ -4,7 +4,7 @@
 
 JavaScript Coding Interview Questions for small-medium companies.
 
-## If you haven't already explored Part 1, I encourage you to do so now.
+### Noted: If you haven't already explored Part 1, I encourage you to do so now.
 
 <a href="https://github.com/meetamjadsaeed/JavaScript-Coding-Interview-Questions/blob/master/README.md" target="_blank"> Proceed to Part 1</a>
 
