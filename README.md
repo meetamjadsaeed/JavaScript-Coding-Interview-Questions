@@ -2734,4 +2734,6 @@ console.log(numbers.includes(NaN)); // true
 
 </details>
 
-## <a name="https://github.com/meetamjadsaeed/JavaScript-Coding-Interview-Questions/blob/master/READMETwo.md"> Proceed to Part 2</a>
+## Proceed to Part 2
+
+<a name="https://github.com/meetamjadsaeed/JavaScript-Coding-Interview-Questions/blob/master/READMETwo.md"> Proceed</a>
