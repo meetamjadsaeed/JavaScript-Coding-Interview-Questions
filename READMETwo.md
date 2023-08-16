@@ -469,7 +469,7 @@ checkType(null);
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 3
+#### Correct Answer: 3
 
 If the function argument is set implicitly(not passing argument) or explicitly to undefined, the value of the argument is the default parameter. Whereas for other falsy values('' or null), the value of the argument is passed as a parameter.
 
