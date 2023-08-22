@@ -498,7 +498,7 @@ console.log(add("Apple"));
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 2
+#### Correct Answer: 2
 
 Since the default argument is evaluated at call time, a new object is created each time the function is called. So in this case, the new array is created and an element pushed to the default empty array.
 
