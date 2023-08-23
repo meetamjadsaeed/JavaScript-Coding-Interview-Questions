@@ -503,3 +503,26 @@ console.log(add("Apple"));
 Since the default argument is evaluated at call time, a new object is created each time the function is called. So in this case, the new array is created and an element pushed to the default empty array.
 
 </details>
+
+#### Q139: What is the output of below code.
+
+```javascript
+function greet(greeting, name, message = greeting + " " + name) {
+  console.log([greeting, name, message]);
+}
+
+greet("Hello", "John");
+greet("Hello", "John", "Good morning!");
+```
+
+- 1: SyntaxError
+- 2: ['Hello', 'John', 'Hello John'], ['Hello', 'John', 'Good morning!']
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 2
+
+Since parameters defined earlier are available to later default parameters, this code snippet doesn't throw any error.
+
+</details>
