@@ -526,3 +526,26 @@ greet("Hello", "John", "Good morning!");
 Since parameters defined earlier are available to later default parameters, this code snippet doesn't throw any error.
 
 </details>
+
+#### Q140: What is the output of below code.
+
+```javascript
+function outer(f = inner()) {
+  function inner() {
+    return "Inner";
+  }
+}
+outer();
+```
+
+- 1: ReferenceError
+- 2: Inner
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 1
+
+The functions and variables declared in the function body cannot be referred from default value parameter initializers. If you still try to access, it throws a run-time ReferenceError(i.e, inner is not defined).
+
+</details>
