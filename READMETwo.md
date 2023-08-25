@@ -549,3 +549,28 @@ outer();
 The functions and variables declared in the function body cannot be referred from default value parameter initializers. If you still try to access, it throws a run-time ReferenceError(i.e, inner is not defined).
 
 </details>
+
+#### Q141: What is the output of below code.
+
+```javascript
+function myFun(x, y, ...manyMoreArgs) {
+  console.log(manyMoreArgs);
+}
+
+myFun(1, 2, 3, 4, 5);
+myFun(1, 2);
+```
+
+- 1: [3, 4, 5], undefined
+- 2: SyntaxError
+- 3: [3, 4, 5], []
+- 4: [3, 4, 5], [undefined]
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 3
+
+The rest parameter is used to hold the remaining parameters of a function and it becomes an empty array if the argument is not provided.
+
+</details>
