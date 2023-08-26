@@ -569,7 +569,7 @@ myFun(1, 2);
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 3
+#### Correct Answer is: 3
 
 The rest parameter is used to hold the remaining parameters of a function and it becomes an empty array if the argument is not provided.
 
