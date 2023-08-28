@@ -574,3 +574,25 @@ myFun(1, 2);
 The rest parameter is used to hold the remaining parameters of a function and it becomes an empty array if the argument is not provided.
 
 </details>
+
+#### Q142: What is the output of below code.
+
+```javascript
+const obj = { key: "value" };
+const array = [...obj];
+console.log(array);
+```
+
+- 1: ['key', 'value']
+- 2: TypeError
+- 3: []
+- 4: ['key']
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 2
+
+Spread syntax can be applied only to iterable objects. By default, Objects are not iterable, but they become iterable when used in an Array, or with iterating functions such as map(), reduce(), and assign(). If you still try to do it, it still throws TypeError: obj is not iterable.
+
+</details>
