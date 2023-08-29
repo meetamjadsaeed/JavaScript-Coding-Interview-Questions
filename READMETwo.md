@@ -596,3 +596,28 @@ console.log(array);
 Spread syntax can be applied only to iterable objects. By default, Objects are not iterable, but they become iterable when used in an Array, or with iterating functions such as map(), reduce(), and assign(). If you still try to do it, it still throws TypeError: obj is not iterable.
 
 </details>
+
+#### Q143: What is the output of below code.
+
+```javascript
+function* myGenFunc() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+var myGenObj = new myGenFunc();
+console.log(myGenObj.next().value);
+```
+
+- 1: 1
+- 2: undefined
+- 3: SyntaxError
+- 4: TypeError
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 4
+
+Generators are not constructible type. But if you still proceed to do, there will be an error saying "TypeError: myGenFunc is not a constructor"
+</details>
