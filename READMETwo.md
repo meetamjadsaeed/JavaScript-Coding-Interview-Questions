@@ -646,7 +646,7 @@ console.log(myGenObj.next());
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 1
+#### Correct Answer is: 1
 
 A return statement in a generator function will make the generator finish. If a value is returned, it will be set as the value property of the object and done property to true. When a generator is finished, subsequent next() calls return an object of this form: {value: undefined, done: true}.
 
