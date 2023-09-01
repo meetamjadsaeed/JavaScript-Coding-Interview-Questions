@@ -651,3 +651,35 @@ console.log(myGenObj.next());
 A return statement in a generator function will make the generator finish. If a value is returned, it will be set as the value property of the object and done property to true. When a generator is finished, subsequent next() calls return an object of this form: {value: undefined, done: true}.
 
 </details>
+
+#### Q145: What is the output of below code.
+
+```javascript
+const myGenerator = (function* () {
+  yield 1;
+  yield 2;
+  yield 3;
+})();
+for (const value of myGenerator) {
+  console.log(value);
+  break;
+}
+
+for (const value of myGenerator) {
+  console.log(value);
+}
+```
+
+- 1: 1,2,3 and 1,2,3
+- 2: 1,2,3 and 4,5,6
+- 3: 1 and 1
+- 4: 1
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer is: 4
+
+The generator should not be re-used once the iterator is closed. i.e, Upon exiting a loop(on completion or using break & return), the generator is closed and trying to iterate over it again does not yield any more results. Hence, the second loop doesn't print any value.
+
+</details>
