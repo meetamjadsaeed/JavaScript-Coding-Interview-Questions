@@ -678,7 +678,7 @@ for (const value of myGenerator) {
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 4
+#### Correct Answer: 4
 
 The generator should not be re-used once the iterator is closed. i.e, Upon exiting a loop(on completion or using break & return), the generator is closed and trying to iterate over it again does not yield any more results. Hence, the second loop doesn't print any value.
 
