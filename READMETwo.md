@@ -683,3 +683,22 @@ for (const value of myGenerator) {
 The generator should not be re-used once the iterator is closed. i.e, Upon exiting a loop(on completion or using break & return), the generator is closed and trying to iterate over it again does not yield any more results. Hence, the second loop doesn't print any value.
 
 </details>
+
+#### Q146: What is the output of below code.
+
+```javascript
+const num = 0o38;
+console.log(num);
+```
+
+- 1: SyntaxError
+- 2: 38
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer is: 1
+
+If you use an invalid number(outside of 0-7 range) in the octal literal, JavaScript will throw a SyntaxError. In ES5, it treats the octal literal as a decimal number.
+
+</details>
