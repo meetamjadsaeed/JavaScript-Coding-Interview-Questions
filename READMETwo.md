@@ -697,7 +697,7 @@ console.log(num);
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 1
+#### Correct Answer is: 1
 
 If you use an invalid number(outside of 0-7 range) in the octal literal, JavaScript will throw a SyntaxError. In ES5, it treats the octal literal as a decimal number.
 
