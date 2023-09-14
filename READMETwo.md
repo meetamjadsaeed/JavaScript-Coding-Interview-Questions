@@ -697,7 +697,7 @@ console.log(num);
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 1
+#### Correct Answer: 1
 
 If you use an invalid number(outside of 0-7 range) in the octal literal, JavaScript will throw a SyntaxError. In ES5, it treats the octal literal as a decimal number.
 
@@ -731,7 +731,7 @@ class Square {
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 2
+#### Correct Answer is: 2
 
 Unlike function declarations, class declarations are not hoisted. i.e, First You need to declare your class and then access it, otherwise it will throw a ReferenceError "Uncaught ReferenceError: Square is not defined".
 
