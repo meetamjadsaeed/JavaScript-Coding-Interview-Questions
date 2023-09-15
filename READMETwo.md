@@ -731,7 +731,7 @@ class Square {
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 2
+#### Correct Answer: 2
 
 Unlike function declarations, class declarations are not hoisted. i.e, First You need to declare your class and then access it, otherwise it will throw a ReferenceError "Uncaught ReferenceError: Square is not defined".
 
