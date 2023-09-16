@@ -703,7 +703,6 @@ If you use an invalid number(outside of 0-7 range) in the octal literal, JavaScr
 
 </details>
 
-
 #### Q147: What is the output of below code.
 
 ```javascript
@@ -736,5 +735,40 @@ class Square {
 Unlike function declarations, class declarations are not hoisted. i.e, First You need to declare your class and then access it, otherwise it will throw a ReferenceError "Uncaught ReferenceError: Square is not defined".
 
 Note: Class expressions also applies to the same hoisting restrictions of class declarations.
+
+</details>
+
+#### Q148: What is the output of below code.
+
+```javascript
+function Person() {}
+
+Person.prototype.walk = function () {
+  return this;
+};
+
+Person.run = function () {
+  return this;
+};
+
+let user = new Person();
+let walk = user.walk;
+console.log(walk());
+
+let run = Person.run;
+console.log(run());
+```
+
+- 1: undefined, undefined
+- 2: Person, Person
+- 3: SyntaxError
+- 4: Window, Window
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 4
+
+When a regular or prototype method is called without a value for this, the methods return an initial this value if the value is not undefined. Otherwise global window object will be returned. In our case, the initial this value is undefined so both methods return window objects.
 
 </details>
