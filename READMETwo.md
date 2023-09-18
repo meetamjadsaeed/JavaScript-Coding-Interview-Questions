@@ -767,7 +767,7 @@ console.log(run());
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 4
+#### Correct Answer is: 4
 
 When a regular or prototype method is called without a value for this, the methods return an initial this value if the value is not undefined. Otherwise global window object will be returned. In our case, the initial this value is undefined so both methods return window objects.
 
