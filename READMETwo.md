@@ -772,3 +772,41 @@ console.log(run());
 When a regular or prototype method is called without a value for this, the methods return an initial this value if the value is not undefined. Otherwise global window object will be returned. In our case, the initial this value is undefined so both methods return window objects.
 
 </details>
+
+#### Q149: What is the output of below code.
+
+```javascript
+class Vehicle {
+  constructor(name) {
+    this.name = name;
+  }
+
+  start() {
+    console.log(`${this.name} vehicle started`);
+  }
+}
+
+class Car extends Vehicle {
+  start() {
+    console.log(`${this.name} car started`);
+    super.start();
+  }
+}
+
+const car = new Car("BMW");
+console.log(car.start());
+```
+
+- 1: SyntaxError
+- 2: BMW vehicle started, BMW car started
+- 3: BMW car started, BMW vehicle started
+- 4: BMW car started, BMW car started
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer is: 3
+
+The super keyword is used to call methods of a superclass. Unlike other languages the super invocation doesn't need to be a first statement. i.e, The statements will be executed in the same order of code.
+
+</details>
