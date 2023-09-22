@@ -805,8 +805,30 @@ console.log(car.start());
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 3
+#### Correct Answer: 3
 
 The super keyword is used to call methods of a superclass. Unlike other languages the super invocation doesn't need to be a first statement. i.e, The statements will be executed in the same order of code.
+
+</details>
+
+#### Q150: What is the output of below code.
+
+```javascript
+const USER = { age: 30 };
+USER.age = 25;
+console.log(USER.age);
+```
+
+- 1: 30
+- 2: 25
+- 3: Uncaught TypeError
+- 4: SyntaxError
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 2
+
+Even though we used constant variables, the content of it is an object and the object's contents (e.g properties) can be altered. Hence, the change is going to be valid in this case.
 
 </details>
