@@ -832,3 +832,21 @@ console.log(USER.age);
 Even though we used constant variables, the content of it is an object and the object's contents (e.g properties) can be altered. Hence, the change is going to be valid in this case.
 
 </details>
+
+#### Q151: What is the output of below code.
+
+```javascript
+console.log("🙂" === "🙂");
+```
+
+- 1: false
+- 2: true
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 2
+
+Emojis are unicodes and the unicode for smile symbol is "U+1F642". The unicode comparision of same emojies is equivalent to string comparison. Hence, the output is always true.
+
+</details>
