@@ -850,3 +850,23 @@ console.log("🙂" === "🙂");
 Emojis are unicodes and the unicode for smile symbol is "U+1F642". The unicode comparision of same emojies is equivalent to string comparison. Hence, the output is always true.
 
 </details>
+
+#### Q152: What is the output of below code.
+
+```javascript
+console.log(typeof typeof typeof true);
+```
+
+- 1: string
+- 2: boolean
+- 3: NaN
+- 4: number
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer: 1
+
+The typeof operator on any primitive returns a string value. So even if you apply the chain of typeof operators on the return value, it is always string.
+
+</details>
