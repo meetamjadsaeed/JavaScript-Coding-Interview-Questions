@@ -845,7 +845,7 @@ console.log("🙂" === "🙂");
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 2
+#### Correct Answer: 2
 
 Emojis are unicodes and the unicode for smile symbol is "U+1F642". The unicode comparision of same emojies is equivalent to string comparison. Hence, the output is always true.
 
