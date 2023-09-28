@@ -865,7 +865,7 @@ console.log(typeof typeof typeof true);
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 1
+#### Correct Answer : 1
 
 The typeof operator on any primitive returns a string value. So even if you apply the chain of typeof operators on the return value, it is always string.
 
