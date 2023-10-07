@@ -870,3 +870,31 @@ console.log(typeof typeof typeof true);
 The typeof operator on any primitive returns a string value. So even if you apply the chain of typeof operators on the return value, it is always string.
 
 </details>
+
+#### Q153: What is the output of below code.
+
+```javascript
+let zero = new Number(0);
+
+if (zero) {
+  console.log("If");
+} else {
+  console.log("Else");
+}
+```
+
+- 1: If
+- 2: Else
+- 3: NaN
+- 4: SyntaxError
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer is: 1
+
+The type of operator on new Number always returns object. i.e, typeof new Number(0) --> object.
+Objects are always truthy in if block
+Hence the above code block always goes to if section.
+
+</details>
