@@ -891,7 +891,7 @@ if (zero) {
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 1
+#### Correct Answer: 1
 
 The type of operator on new Number always returns object. i.e, typeof new Number(0) --> object.
 Objects are always truthy in if block
