@@ -921,7 +921,7 @@ let count = 10;
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer : 1
+#### Correct Answer is: 1
 
 11 and 10 is logged to the console.
 
