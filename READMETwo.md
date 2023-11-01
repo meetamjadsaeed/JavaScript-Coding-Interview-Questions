@@ -940,7 +940,7 @@ The innerFunc is a closure which captures the count variable from the outerscope
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer:
+#### Correct Answer is:
 
 1: hi
 2: 1
