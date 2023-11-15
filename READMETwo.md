@@ -974,7 +974,7 @@ console.log(arr == str);
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 3
+#### Correct Answer: 3
 
 Arrays have their own implementation of toString method that returns a comma-separated list of elements. So the above code snippet returns true. In order to avoid conversion of array type, we should use === for comparison.
 
