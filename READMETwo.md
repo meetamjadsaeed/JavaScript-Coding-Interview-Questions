@@ -979,3 +979,26 @@ console.log(arr == str);
 Arrays have their own implementation of toString method that returns a comma-separated list of elements. So the above code snippet returns true. In order to avoid conversion of array type, we should use === for comparison.
 
 </details>
+
+#### Q157: What is the output of below code.
+
+```javascript
+getMessage();
+
+var getMessage = () => {
+  console.log("Good morning");
+};
+```
+1: Good morning
+2: getMessage is not a function
+3: getMessage is not defined
+4: Undefined
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer is: 2
+
+Hoisting will move variables and functions to be the top of scope. Even though getMessage is an arrow function the above function will considered as a varible due to it's variable declaration or assignment. So the variables will have undefined value in memory phase and throws an error 'getMessage is not a function' at the code execution phase.
+
+</details>
