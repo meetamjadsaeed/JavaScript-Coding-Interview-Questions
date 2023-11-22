@@ -997,7 +997,7 @@ var getMessage = () => {
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer is: 2
+#### Correct Answer: 2
 
 Hoisting will move variables and functions to be the top of scope. Even though getMessage is an arrow function the above function will considered as a varible due to it's variable declaration or assignment. So the variables will have undefined value in memory phase and throws an error 'getMessage is not a function' at the code execution phase.
 
