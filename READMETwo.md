@@ -989,6 +989,7 @@ var getMessage = () => {
   console.log("Good morning");
 };
 ```
+
 1: Good morning
 2: getMessage is not a function
 3: getMessage is not defined
@@ -1000,5 +1001,31 @@ var getMessage = () => {
 #### Correct Answer is: 2
 
 Hoisting will move variables and functions to be the top of scope. Even though getMessage is an arrow function the above function will considered as a varible due to it's variable declaration or assignment. So the variables will have undefined value in memory phase and throws an error 'getMessage is not a function' at the code execution phase.
+
+</details>
+
+#### Q158: What is the output of below code.
+
+```javascript
+let quickPromise = Promise.resolve();
+
+quickPromise.then(() => console.log("promise finished"));
+
+console.log("program finished");
+```
+
+- 1: program finished
+- 2: Cannot predict the order
+- 3: program finished, promise finished
+- 4: promise finished, program finished
+
+<details>
+  <summary>Answer</summary>
+  
+#### Correct Answer is: 3
+
+Even though a promise is resolved immediately, it won't be executed immediately because its .then/catch/finally handlers or callbacks(aka task) are pushed into the queue. Whenever the JavaScript engine becomes free from the current program, it pulls a task from the queue and executes it. This is the reason why last statement is printed first before the log of promise handler.
+
+Note: We call the above queue as "MicroTask Queue"
 
 </details>
