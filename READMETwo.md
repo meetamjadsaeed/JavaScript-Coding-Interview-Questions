@@ -1022,7 +1022,7 @@ console.log("program finished");
 <details>
   <summary>Answer</summary>
   
-#### Correct Answer: 3
+#### Correct Answer is: 3
 
 Even though a promise is resolved immediately, it won't be executed immediately because its .then/catch/finally handlers or callbacks(aka task) are pushed into the queue. Whenever the JavaScript engine becomes free from the current program, it pulls a task from the queue and executes it. This is the reason why last statement is printed first before the log of promise handler.
 
